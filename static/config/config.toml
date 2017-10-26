@@ -1,0 +1,28 @@
+# Config
+env = "dev"
+
+[user]
+    agent = "Admin"
+    password = "e64b78fc3bc91bcbc7dc232ba8ec59e0" #Admin123
+
+
+
+[server]
+    [server.dev]
+    listen = ":3001"
+    cookie_cache_time=3600
+
+    [server.pro]
+    listen = ":80"
+    cookie_cache_time=36000
+
+
+[mysql]
+    [mysql.dev]
+    url = "test:test@tcp(127.0.0.1:3306)/test?charset=utf8"
+    dbtype = "mysql"
+
+
+    [mysql.pro]
+    url = "web:webdatabase@tcp(127.0.0.1:3306)/web?charset=utf8"
+    dbtype = "mysql"
