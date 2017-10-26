@@ -1,23 +1,45 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"github.com/itsjamie/gin-cors"
-
 	"github.com/gin-gonic/gin"
+	"github.com/brasbug/darkside/handler"
+	"github.com/itsjamie/gin-cors"
 	"time"
+	"github.com/brasbug/darkside/config"
+	"github.com/brasbug/darkside/db"
+	log "github.com/brasbug/log4go"
 )
 
 
 
+func SetLog() {
+	w := log.NewFileWriter()
+	w.SetPathPattern("./log/log-%Y%M%D.log")
+	c := log.NewConsoleWriter()
+	c.SetColor(true)
+	log.Register(w)
+	log.Register(c)
+	log.SetLevel(log.DEBUG)
+	log.SetLayout("2006-01-02 15:04:05")
+}
 
+
+func init()  {
+	config.InitConf("static/config/config.toml")
+	db.InitMysql()
+
+}
 
 
 func main() {
-	router := gin.Default()
 
-	router.Use(cors.Middleware(cors.Config{
+	SetLog()
+	defer  log.Close()
+
+	defer db.DBConf().Close()
+
+	r := gin.Default()
+	r.Use(cors.Middleware(cors.Config{
 		Origins:         "*",
 		Methods:         "GET, PUT, POST, DELETE",
 		RequestHeaders:  "Origin, Authorization, Content-Type",
@@ -26,32 +48,9 @@ func main() {
 		Credentials:     true,
 		ValidateHeaders: false,
 	}))
+	handler.RegisterRouters(r)
 
-	// Set a lower memory limit for multipart forms (default is 32 MiB)
-	router.MaxMultipartMemory = 8 << 20 // 8 MiB
-	router.Static("/", "./public")
-	router.POST("/upload", func(c *gin.Context) {
-		name := c.PostForm("name")
-		email := c.PostForm("email")
+	gin.SetMode(config.TomlConf().GinEnv())
+	r.Run(config.TomlConf().Server().Listen)
 
-		// Multipart form
-		form, err := c.MultipartForm()
-		if err != nil {
-			c.String(http.StatusBadRequest, fmt.Sprintf("get form err: %s", err.Error()))
-			return
-		}
-		files := form.File["files"]
-
-		for _, file := range files {
-			if err := c.SaveUploadedFile(file,"uploadfiles/"+file.Filename); err != nil {
-				c.String(http.StatusBadRequest, fmt.Sprintf("upload file err: %s", err.Error()))
-				return
-			}
-		}
-
-		c.String(http.StatusOK, fmt.Sprintf("Uploaded successfully %d files with fields name=%s and email=%s.", len(files), name, email))
-	})
-
-
-	router.Run(":8080")
 }
