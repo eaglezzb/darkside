@@ -8,6 +8,7 @@ import (
 	"github.com/brasbug/darkside/config"
 	"github.com/brasbug/darkside/db"
 	log "github.com/brasbug/log4go"
+	midw "github.com/brasbug/darkside/middleware"
 )
 
 
@@ -27,7 +28,6 @@ func SetLog() {
 func init()  {
 	config.InitConf("static/config/config.toml")
 	db.InitMysql()
-
 }
 
 
@@ -48,9 +48,9 @@ func main() {
 		Credentials:     true,
 		ValidateHeaders: false,
 	}))
+	r.Use(midw.Middleware)
+	r.StaticFile("/favicon.ico", "./static/resources/favicon.ico")
 	handler.RegisterRouters(r)
-
 	gin.SetMode(config.TomlConf().GinEnv())
 	r.Run(config.TomlConf().Server().Listen)
-
 }
