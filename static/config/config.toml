@@ -9,7 +9,7 @@ env = "dev"
 
 [server]
     [server.dev]
-    listen = ":3001"
+    listen = ":8081"
     cookie_cache_time=3600
 
     [server.pro]
