@@ -17,11 +17,11 @@ func DBTest()  {
 func insertTest() {
 
 	user := model.NewUser()
-	user.Name = "Jack"
-	user.Sex = "female"
+	user.UserName = "Jack"
+	//user.Sex = 1
 	user.CreateTime = time.Now()
 	user.Password = "123456"
-
+	user.DepartName = "技术部"
 	user.InsertUser()
 }
 
