@@ -11,7 +11,9 @@ import (
 
 
 var routers = map[string]gin.HandlerFunc{
-	"GET	 /":Index,
+	"GET      /":Index,
+	"GET      /upload":UploadIndex,
+	"POST     /uploadfile":UploadFile,
 }
 
 
@@ -22,10 +24,7 @@ func RegisterRouters(r *gin.Engine)  {
 		method := "GET"
 		//空格
 		idx := strings.Index(route, " ")
-		//缩进
-		if idx == -1{
-			idx = strings.Index(route, "	")
-		}
+
 		if idx > -1 {
 			method = route[:idx]
 			route = strings.TrimSpace(route[idx+1:])
