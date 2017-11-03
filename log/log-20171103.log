@@ -86,3 +86,9 @@
 2017-11-03 21:24:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
 2017-11-03 21:24:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
 2017-11-03 21:24:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-03 23:09:57 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-03 23:09:57 	 [ERROR] 	 <model_user.go:72>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2017-11-03 23:10:12 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-03 23:10:12 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-03 23:58:55 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-03 23:58:55 	 [ERROR] 	 <model_user.go:61>  	 Error 1366: Incorrect integer value: 'female' for column 'sex' at row 1
