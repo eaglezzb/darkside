@@ -4,6 +4,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"database/sql"
 	"github.com/brasbug/darkside/config"
+	"fmt"
 )
 
 var db *sql.DB
@@ -13,6 +14,7 @@ func DBConf()*sql.DB  {
 	return db
 }
 func InitMysql()  {
+	fmt.Println(config.TomlConf().Mysql().DBtype, config.TomlConf().Mysql().Url)
 	db, err = sql.Open(config.TomlConf().Mysql().DBtype, config.TomlConf().Mysql().Url)
 	db.SetMaxIdleConns(200)
 	db.SetMaxOpenConns(100)
@@ -25,6 +27,9 @@ func checkErr(err error) {
 		panic(err)
 	}
 }
+
+
+
 
 
 
