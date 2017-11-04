@@ -12,20 +12,20 @@ func DBTest()  {
 	//dbsqlTest()
 
 	insertTest()
-	user := model.FindUserFromDB(94)
+	user,_ := model.FindUserFromDB(103)
 	fmt.Println(user)
 }
 
 func insertTest() {
 	user := model.NewUser()
-	user.Uid = 94
-	user.UserName = "Harry"
+	user.Uid = 109
+	user.UserName = "Haryy"
 	user.Sex = 1
 	user.CreateTime = time.Now().Unix()
-	user.Password = "123456"
-	user.DepartName = "技术部22"
+	user.Password = "12345sdsd6"
+	user.DepartName = "技asdasd"
 	fmt.Println(user)
-	user.UpdateIntoDB()
+	user.InsertUser()
 }
 
 
