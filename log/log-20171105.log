@@ -1,0 +1,9 @@
+2017-11-05 00:08:59 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 00:08:59 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 00:11:33 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 00:11:33 	 [ERROR] 	 <model_user.go:75>  	 sql: Scan error on column index 3: converting driver.Value type <nil> ("<nil>") to a int64: invalid syntax
+2017-11-05 00:11:33 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 00:11:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 00:11:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 00:14:48 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 00:14:49 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
