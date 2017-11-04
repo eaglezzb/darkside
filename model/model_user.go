@@ -5,6 +5,7 @@ import (
 	"github.com/brasbug/darkside/db"
 	log "github.com/brasbug/log4go"
 	"fmt"
+	"errors"
 )
 
 type UserInfoModel struct {
@@ -30,18 +31,19 @@ func (user *UserInfoModel)ToString()(desc string)  {
 	return desc
 }
 
-func (user *UserInfoModel)InsertUser(){
+func (user *UserInfoModel)InsertUser()(error){
 	db := db.DBConf()
 	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,password=?,sex=?")
 	checkErr(err)
 	_, err = stmt.Exec(user.UserName, user.DepartName, time.Now().Unix(),user.Password,user.Sex)
 	checkErr(err)
+	return err
 }
 
-func (user *UserInfoModel)UpdateIntoDB()  {
+func (user *UserInfoModel)UpdateIntoDB()(error)  {
 	if user.Uid == 0 {
 		log.Error("更新失败，找不到主键Uid")
-		return
+		return errors.New("更新失败，找不到主键Uid")
 	}
 	db := db.DBConf()
 	fmt.Println(user.Uid)
@@ -49,21 +51,24 @@ func (user *UserInfoModel)UpdateIntoDB()  {
 	stmt, err := db.Prepare("update userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
 	checkErr(err)
 	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.Password,user.Sex, user.Uid)
+	//fmt.Println("user"user)
 	checkErr(err)
-
+	return err
 }
 
-func FindUserFromDB(uid int64)(UserInfoModel)  {
+func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, departname, createtime FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
-		&user.UserName,&user.DepartName,&user.CreateTime)
+	err := db.QueryRow("SELECT uid, username, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
+		 &user.UserName, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
+	fmt.Println("user.UserName",user.UserName)
 	checkErr(err)
-	return user
+	return user,err
 }
 
+func DeleteUserFromDB(uid int64)()  {
 
-
+}
 
 func checkErr(err error) {
 	if err != nil {
