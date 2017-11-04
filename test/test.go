@@ -18,7 +18,7 @@ func DBTest()  {
 
 func insertTest() {
 	user := model.NewUser()
-	user.Uid = 88
+	user.Uid = 94
 	user.UserName = "Harry"
 	user.Sex = 1
 	user.CreateTime = time.Now().Unix()
