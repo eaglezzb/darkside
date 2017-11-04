@@ -54,15 +54,10 @@ func (user *UserInfoModel)UpdateIntoDB()  {
 }
 
 func FindUserFromDB(uid int64)(UserInfoModel)  {
-
 	var user UserInfoModel
 	db := db.DBConf()
-	var timeSp int64
 	err := db.QueryRow("SELECT uid, username, departname, createtime FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
-		&user.UserName,&user.DepartName,&timeSp)
-	fmt.Println("timeSp",timeSp)
-	//tm := time.Unix(timeSp,0)
-	//user.CreateTime = tm
+		&user.UserName,&user.DepartName,&user.CreateTime)
 	checkErr(err)
 	return user
 }
