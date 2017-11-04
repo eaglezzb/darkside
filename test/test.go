@@ -12,17 +12,20 @@ func DBTest()  {
 	//dbsqlTest()
 
 	insertTest()
+	user := model.FindUserFromDB(94)
+	fmt.Println(user)
 }
 
 func insertTest() {
-
 	user := model.NewUser()
-	user.UserName = "Jack"
-	//user.Sex = 1
-	user.CreateTime = time.Now()
+	user.Uid = 88
+	user.UserName = "Harry"
+	user.Sex = 1
+	user.CreateTime = time.Now().Unix()
 	user.Password = "123456"
-	user.DepartName = "技术部"
-	user.InsertUser()
+	user.DepartName = "技术部22"
+	fmt.Println(user)
+	user.UpdateIntoDB()
 }
 
 
@@ -37,10 +40,10 @@ func dbsqlTest()  {
 	var db = db.DBConf()
 
 	//插入数据
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,created=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?")
 	checkErr(err)
 
-	res, err := stmt.Exec("码农", "技术部", "2017-11-06")
+	res, err := stmt.Exec("码农", "技术部", time.Now().Unix())
 	checkErr(err)
 
 	id, err := res.LastInsertId()
@@ -67,13 +70,13 @@ func dbsqlTest()  {
 		var uid int
 		var username string
 		var department string
-		var created string
+		var createtime string
 		var age int
 		var phone string
 
 
-		err = rows.Scan(&uid, &username, &department, &created,&age,&phone)
+		err = rows.Scan(&uid, &username, &department, &createtime,&age,&phone)
 
-		fmt.Println(uid,username,department,created,age,phone)
+		fmt.Println(uid,username,department,createtime,age,phone)
 	}
 }
