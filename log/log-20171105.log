@@ -314,3 +314,24 @@
 2017-11-05 14:56:53 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
 2017-11-05 14:56:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/188
 2017-11-05 14:56:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 17:01:43 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/188
+2017-11-05 17:01:43 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 17:01:48 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/200
+2017-11-05 17:01:48 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 17:01:48 	 [ERROR] 	 <handler_user.go:23>  	 sql: no rows in result set%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-05 17:01:56 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/188
+2017-11-05 17:10:31 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/188
+2017-11-05 17:10:32 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 17:10:35 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/400
+2017-11-05 17:10:35 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 17:10:35 	 [ERROR] 	 <handler_user.go:23>  	 sql: no rows in result set%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-05 17:10:40 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/188
+2017-11-05 17:10:42 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/188
+2017-11-05 17:10:46 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/104
+2017-11-05 17:10:48 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/10
+2017-11-05 17:10:48 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 17:10:48 	 [ERROR] 	 <handler_user.go:23>  	 sql: no rows in result set%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-05 17:10:51 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/100
+2017-11-05 17:10:51 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 17:10:51 	 [ERROR] 	 <handler_user.go:23>  	 sql: no rows in result set%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-05 17:10:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/user/103
