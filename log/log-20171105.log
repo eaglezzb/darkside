@@ -275,3 +275,42 @@
 2017-11-05 01:04:58 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
 2017-11-05 01:04:58 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
 2017-11-05 01:04:59 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:04:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:04:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:04:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:04:16 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:04:17 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:04:17 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:04:17 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:04:17 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:11:13 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:11:13 	 [ERROR] 	 <model_user.go:82>  	 sql: no rows in result set
+2017-11-05 13:11:14 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:11:57 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:11:58 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:11:59 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:11:59 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:37:07 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:37:07 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:37:08 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:37:08 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 13:46:26 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 13:46:26 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 14:20:01 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 14:20:01 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 14:27:39 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 14:27:39 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 14:27:39 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 14:49:21 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-05 14:49:21 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 14:49:35 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/11
+2017-11-05 14:49:35 	 [ERROR] 	 <model_user.go:79>  	 sql: no rows in result set
+2017-11-05 14:49:35 	 [ERROR] 	 <handler_user.go:23>  	 sql: no rows in result set%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-05 14:49:46 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/130
+2017-11-05 14:56:06 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/188
+2017-11-05 14:56:52 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/188
+2017-11-05 14:56:52 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 14:56:53 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/188
+2017-11-05 14:56:53 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
+2017-11-05 14:56:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/userinfo/188
+2017-11-05 14:56:54 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/favicon.ico
