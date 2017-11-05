@@ -14,6 +14,7 @@ var routers = map[string]gin.HandlerFunc{
 	"GET      /":Index,
 	"GET      /upload":UploadIndex,
 	"POST     /uploadfile":UploadFile,
+	"GET     /userinfo/:uid":GetUserInfo,
 }
 
 
