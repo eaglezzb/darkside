@@ -11,9 +11,9 @@ func DBTest()  {
 
 	//dbsqlTest()
 
-	//userTest()
-	user,_ := model.FindUserFromDB(20)
-	fmt.Println(user)
+	userTest()
+	//user,_ := model.FindUserFromDB(20)
+	//fmt.Println(user)
 	//err := model.DeleteUserFromDB(111)
 	//if err != nil{
 	//	fmt.Println(err)
@@ -29,7 +29,7 @@ func userTest() {
 	user.Password = "12345sdsd6"
 	user.DepartName = "技asdasd"
 	fmt.Println(user)
-	user.UpdateIntoDB()
+	user.InsertUser()
 }
 
 
