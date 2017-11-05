@@ -59,7 +59,6 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	db := db.DBConf()
 	err := db.QueryRow("SELECT uid, username, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
 		 &user.UserName, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
-	fmt.Println("user.UserName",user.UserName)
 	checkErr(err)
 	return user,err
 }
