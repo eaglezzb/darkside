@@ -47,11 +47,9 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 	}
 	db := db.DBConf()
 	fmt.Println(user.Uid)
-
-	stmt, err := db.Prepare("update userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
+	stmt, err := db.Prepare("UPDATE userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
 	checkErr(err)
 	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.Password,user.Sex, user.Uid)
-	//fmt.Println("user"user)
 	checkErr(err)
 	return err
 }
@@ -66,8 +64,14 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	return user,err
 }
 
-func DeleteUserFromDB(uid int64)()  {
-
+func DeleteUserFromDB(uid int64)(error)  {
+	db := db.DBConf()
+	stmt, err := db.Prepare("delete from userinfo where uid=?")
+	if err != nil{
+		return err
+	}
+	_,err = stmt.Exec(uid)
+	return err
 }
 
 func checkErr(err error) {
