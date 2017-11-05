@@ -8,6 +8,10 @@ import (
 	"errors"
 )
 
+type BaseUserInfoModel struct {
+
+}
+
 type UserInfoModel struct {
 	Uid  		int64 		`json:"uid" form:"uid"`
 	UserName	string 		`json:"username" form:"username"`
@@ -17,8 +21,8 @@ type UserInfoModel struct {
 	Sex 		int 		`json:"sex" form:"sex"`     //0默认未设置 1男，2女
 	UserId 		string 		`json:"userid" form:"userid"`
 	DepartName	string		`json:"departname" form:"departname"`
-	Phone 		string		`json:"phone" form:"phone"`
-	PhonePrefix 	string		`json:"phoneprefix" form:"phoneprefix"`
+	Phone 		int64		`json:"phone" form:"phone"`
+	PhonePrefix 	int64		`json:"phoneprefix" form:"phoneprefix"`
 }
 
 
