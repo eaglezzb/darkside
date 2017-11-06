@@ -67,15 +67,15 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	return user,err
 }
 
-func DeleteUserFromDB(uid int64)(error)  {
-	db := db.DBConf()
-	stmt, err := db.Prepare("delete from userinfo where uid=?")
-	if err != nil{
-		return err
-	}
-	_,err = stmt.Exec(uid)
-	return err
-}
+//func DeleteUserFromDB(uid int64)(error)  {
+//	db := db.DBConf()
+//	stmt, err := db.Prepare("delete from userinfo where uid=?")
+//	if err != nil{
+//		return err
+//	}
+//	_,err = stmt.Exec(uid)
+//	return err
+//}
 
 func checkErr(err error) {
 	if err != nil {
