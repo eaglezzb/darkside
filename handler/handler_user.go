@@ -57,24 +57,12 @@ func RegisterHandler(c *gin.Context )  {
 		"message":"注册成功",
 		"userinfo":user,
 	})
-
-
 }
 
-func valideUserName(name string)bool  {
-	reg := regexp.MustCompile("^[a-zA-Z0-9_-]{4,16}$")
-	return reg.MatchString(name)
-}
+//func ()  {
+//
+//}
 
-func validePassword(name string)bool  {
-	reg := regexp.MustCompile("^[a-zA-Z0-9_-]{4,16}$")
-	return reg.MatchString(name)
-}
-
-func validePhone(name string)bool  {
-	reg := regexp.MustCompile("^[1-9][0-9]{4,13}$")
-	return reg.MatchString(name)
-}
 
 //user/:uid
 func GetUserInfo(c *gin.Context)  {
@@ -97,3 +85,21 @@ func GetUserInfo(c *gin.Context)  {
 	})
 }
 
+
+
+
+
+func valideUserName(name string)bool  {
+	reg := regexp.MustCompile("^[a-zA-Z0-9_-]{4,16}$")
+	return reg.MatchString(name)
+}
+
+func validePassword(name string)bool  {
+	reg := regexp.MustCompile("^[a-zA-Z0-9_-]{4,16}$")
+	return reg.MatchString(name)
+}
+
+func validePhone(name string)bool  {
+	reg := regexp.MustCompile("^[1-9][0-9]{4,13}$")
+	return reg.MatchString(name)
+}
