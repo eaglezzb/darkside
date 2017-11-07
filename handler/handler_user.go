@@ -32,15 +32,13 @@ func RegisterHandler(c *gin.Context )  {
 	}
 	user.Sex,_ = strconv.Atoi(c.PostForm("sex"))
 	user.DepartName = c.PostForm("departname")
-	phonePrefixstr := c.PostForm("phoneprefix")
-	user.PhonePrefix ,_ = strconv.ParseInt(phonePrefixstr,10,64)
-
-	phonestr := c.PostForm("phone")
-	if !validePhone(phonestr) {
+	user.PhonePrefix = c.PostForm("phoneprefix")
+	user.Phone  = c.PostForm("phone")
+	if !validePhone(c.PostForm("phone")) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"手机号不符合要求")
 		return
 	}
-	user.Phone ,_ = strconv.ParseInt(phonestr,10,64)
+	user.Phone  = c.PostForm("phone")
 	tm := time.Now()
 	user.CreateTime = tm.Unix()
 	user.UpdateTime = tm.Unix()
@@ -57,12 +55,6 @@ func RegisterHandler(c *gin.Context )  {
 	})
 }
 
-func errCallBack(c *gin.Context,status int,code int,message string)  {
-	c.JSON(status,gin.H{
-		"code":code,
-		"message":message,
-	})
-}
 
 
 
@@ -113,4 +105,11 @@ func validePassword(name string)bool  {
 func validePhone(name string)bool  {
 	reg := regexp.MustCompile("^[1-9][0-9]{4,13}$")
 	return reg.MatchString(name)
+}
+
+func errCallBack(c *gin.Context,status int,code int,message string)  {
+	c.JSON(status,gin.H{
+		"code":code,
+		"message":message,
+	})
 }
