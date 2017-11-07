@@ -12,10 +12,12 @@ import (
 
 var routers = map[string]gin.HandlerFunc{
 	"GET      /":Index,
-	"GET      /upload":UploadIndex,
-	"POST     /uploadfile":UploadFile,
-	"GET      /user/:uid":GetUserInfo,
+	"GET      /upload":UploadIndexHandler,
+	"POST     /uploadfile":UploadFileHandler,
+
+	"GET      /user/:uid":GetUserInfoHandler,
 	"POST     /user/registeruser":RegisterHandler,
+	"POST    /user/login":LoginHandler,
 }
 
 
