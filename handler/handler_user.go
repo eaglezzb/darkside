@@ -8,11 +8,19 @@ import (
 	"net/http"
 	"strconv"
 	"regexp"
+	"time"
+	"fmt"
 )
 
 func RegisterHandler(c *gin.Context )  {
 	user := m.NewUser()
 	user.UserName = c.PostForm("username")
+	nameValid := m.CheckUserNameValid(user.UserName)
+	if nameValid == false {
+		fmt.Println("用户名不可yong")
+		return
+	}
+
 	if !valideUserName(user.UserName) {
 		c.JSON(http.StatusOK,gin.H{
 			"code":http.StatusBadRequest,
@@ -20,6 +28,7 @@ func RegisterHandler(c *gin.Context )  {
 		})
 		return
 	}
+
 	user.Password = c.PostForm("password")
 	if !validePassword(user.Password) {
 		c.JSON(http.StatusOK,gin.H{
@@ -34,7 +43,6 @@ func RegisterHandler(c *gin.Context )  {
 	user.PhonePrefix ,_ = strconv.ParseInt(phonePrefixstr,10,64)
 
 	phonestr := c.PostForm("phone")
-
 	if !validePhone(phonestr) {
 		c.JSON(http.StatusOK,gin.H{
 			"code":http.StatusBadRequest,
@@ -43,7 +51,9 @@ func RegisterHandler(c *gin.Context )  {
 		return
 	}
 	user.Phone ,_ = strconv.ParseInt(phonestr,10,64)
-
+	tm := time.Now()
+	user.CreateTime = tm.Unix()
+	user.UpdateTime = tm.Unix()
 	err := user.InsertUser()
 	if err != nil {
 		c.JSON(http.StatusOK,gin.H{
@@ -59,13 +69,19 @@ func RegisterHandler(c *gin.Context )  {
 	})
 }
 
-//func ()  {
-//
-//}
+
+
+func LoginHandler(c *gin.Context)  {
+	//user := m.NewUser()
+
+
+
+
+}
 
 
 //user/:uid
-func GetUserInfo(c *gin.Context)  {
+func GetUserInfoHandler(c *gin.Context)  {
 	uid ,_ := strconv.ParseInt(c.Param("uid"),10,64)
 	user,err := m.FindUserFromDB(uid)
 	if err != nil{
