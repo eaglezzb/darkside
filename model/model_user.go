@@ -58,31 +58,37 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 
 
 func CheckUserNameValid(name string)(bool)  {
+	var username string
 	db := db.DBConf()
-	_, err := db.Query("SELECT * FROM userinfo where username = " + name)
-	if err != nil{
-		return false
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name).Scan(&username)
+	log.Info("用户名可用",err)
+	if len(username) == 0 {
+		return true
 	}
-	return true
+	return false
 }
 
 func CheckEmailValid(mail string)(bool)  {
+	var username string
 	db := db.DBConf()
-	_, err := db.Query("SELECT * FROM userinfo where mail = " + mail)
-	if err != nil{
-		return false
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail).Scan(&username)
+	log.Info("用户名可用",err)
+	if len(username) == 0 {
+		return true
 	}
-	return true
+	return false
 }
 
 
 func CheckUserIdValid(userId string)(bool)  {
+	var username string
 	db := db.DBConf()
-	_, err := db.Query("SELECT * FROM userinfo where userid = " + userId)
-	if err != nil{
-		return false
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId).Scan(&username)
+	log.Info("用户名可用",err)
+	if len(username) == 0 {
+		return true
 	}
-	return true
+	return false
 }
 
 func FindUserFromDB(uid int64)(UserInfoModel,error)  {
@@ -93,6 +99,7 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	checkErr(err)
 	return user,err
 }
+
 
 func DeleteUserFromDB(uid int64)(error)  {
 	db := db.DBConf()
