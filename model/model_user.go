@@ -1,11 +1,10 @@
 package model
 
 import (
-	"time"
 	"github.com/brasbug/darkside/db"
 	log "github.com/brasbug/log4go"
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 type BaseUserInfoModel struct {
@@ -37,9 +36,9 @@ func (user *UserInfoModel)ToString()(desc string)  {
 
 func (user *UserInfoModel)InsertUser()(error){
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,password=?,sex=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName, time.Now().Unix(),user.Password,user.Sex)
+	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex)
 	checkErr(err)
 	return err
 }
@@ -50,12 +49,40 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 		return errors.New("更新失败，找不到主键Uid")
 	}
 	db := db.DBConf()
-	fmt.Println(user.Uid)
 	stmt, err := db.Prepare("UPDATE userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
 	checkErr(err)
 	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.Password,user.Sex, user.Uid)
 	checkErr(err)
 	return err
+}
+
+
+func CheckUserNameValid(name string)(bool)  {
+	db := db.DBConf()
+	_, err := db.Query("SELECT * FROM userinfo where username = " + name)
+	if err != nil{
+		return false
+	}
+	return true
+}
+
+func CheckEmailValid(mail string)(bool)  {
+	db := db.DBConf()
+	_, err := db.Query("SELECT * FROM userinfo where mail = " + mail)
+	if err != nil{
+		return false
+	}
+	return true
+}
+
+
+func CheckUserIdValid(userId string)(bool)  {
+	db := db.DBConf()
+	_, err := db.Query("SELECT * FROM userinfo where userid = " + userId)
+	if err != nil{
+		return false
+	}
+	return true
 }
 
 func FindUserFromDB(uid int64)(UserInfoModel,error)  {
@@ -67,15 +94,16 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	return user,err
 }
 
-//func DeleteUserFromDB(uid int64)(error)  {
-//	db := db.DBConf()
-//	stmt, err := db.Prepare("delete from userinfo where uid=?")
-//	if err != nil{
-//		return err
-//	}
-//	_,err = stmt.Exec(uid)
-//	return err
-//}
+func DeleteUserFromDB(uid int64)(error)  {
+	db := db.DBConf()
+	stmt, err := db.Prepare("delete from userinfo where uid=?")
+	if err != nil{
+		return err
+	}
+	fmt.Println(uid)
+	_,err = stmt.Exec(uid)
+	return err
+}
 
 func checkErr(err error) {
 	if err != nil {
