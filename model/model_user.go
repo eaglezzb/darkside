@@ -22,6 +22,12 @@ type UserInfoModel struct {
 	DepartName	string		`json:"departname" form:"departname"`
 	Phone 		int64		`json:"phone" form:"phone"`
 	PhonePrefix 	int64		`json:"phoneprefix" form:"phoneprefix"`
+	Mail 		string		`json:"mail" form:"mail"`
+	OldPassword 	string		`json:"oldpassword" form:"oldpassword"`
+	Authtoken 	string		`json:"authtoken" form:"authtoken"`
+	State 		int 		`json:"state" form:"state"`
+
+
 }
 
 
@@ -35,10 +41,20 @@ func (user *UserInfoModel)ToString()(desc string)  {
 }
 
 func (user *UserInfoModel)InsertUser()(error){
+
+	if CheckUserNameValid(user.UserName) == false{
+		err := errors.New("用户名已存在")
+		return err
+	}
+	//if user.Mail != nil && CheckEmailValid(user.Mail) == false {
+	//	err := errors.New("邮箱已存在")
+	//	return err
+	//}
+
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex)
+	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail)
 	checkErr(err)
 	return err
 }
@@ -61,7 +77,7 @@ func CheckUserNameValid(name string)(bool)  {
 	var username string
 	db := db.DBConf()
 	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name).Scan(&username)
-	log.Info("用户名可用",err)
+	log.Info("用户名已被注册",err)
 	if len(username) == 0 {
 		return true
 	}
