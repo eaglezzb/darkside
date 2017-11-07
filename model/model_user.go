@@ -26,10 +26,7 @@ type UserInfoModel struct {
 	OldPassword 	string		`json:"oldpassword" form:"oldpassword"`
 	Authtoken 	string		`json:"authtoken" form:"authtoken"`
 	State 		int 		`json:"state" form:"state"`
-
-
 }
-
 
 func NewUser() UserInfoModel {
 	return UserInfoModel{}
@@ -120,6 +117,15 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	db := db.DBConf()
 	err := db.QueryRow("SELECT uid, username, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
 		 &user.UserName, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
+	checkErr(err)
+	return user,err
+}
+
+func FindUserFromDBByName(name string)(UserInfoModel,error)  {
+	var user UserInfoModel
+	db := db.DBConf()
+	err := db.QueryRow("SELECT uid, username, password, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE username=?", name).Scan(&user.Uid,
+		&user.UserName, &user.Password, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
 	checkErr(err)
 	return user,err
 }
