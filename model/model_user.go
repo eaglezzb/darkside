@@ -20,8 +20,8 @@ type UserInfoModel struct {
 	Sex 		int 		`json:"sex" form:"sex"`     //0默认未设置 1男，2女
 	UserId 		string 		`json:"userid" form:"userid"`
 	DepartName	string		`json:"departname" form:"departname"`
-	Phone 		int64		`json:"phone" form:"phone"`
-	PhonePrefix 	int64		`json:"phoneprefix" form:"phoneprefix"`
+	Phone 		string		`json:"phone" form:"phone"`
+	PhonePrefix 	string		`json:"phoneprefix" form:"phoneprefix"`
 	Mail 		string		`json:"mail" form:"mail"`
 	OldPassword 	string		`json:"oldpassword" form:"oldpassword"`
 	Authtoken 	string		`json:"authtoken" form:"authtoken"`
@@ -43,18 +43,19 @@ func (user *UserInfoModel)ToString()(desc string)  {
 func (user *UserInfoModel)InsertUser()(error){
 
 	if CheckUserNameValid(user.UserName) == false{
-		err := errors.New("用户名已存在")
+		err := errors.New("该用户名已被注册")
 		return err
 	}
-	//if user.Mail != nil && CheckEmailValid(user.Mail) == false {
-	//	err := errors.New("邮箱已存在")
-	//	return err
-	//}
+
+	if CheckPhoneValid(user.Phone) == false{
+		err := errors.New("该手机号已被注册")
+		return err
+	}
 
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail)
+	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix)
 	checkErr(err)
 	return err
 }
@@ -74,36 +75,43 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 
 
 func CheckUserNameValid(name string)(bool)  {
-	var username string
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name).Scan(&username)
-	log.Info("用户名已被注册",err)
-	if len(username) == 0 {
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name)
+	if err != nil {
 		return true
 	}
+	log.Warn("CheckUserNameValid：该用户名已存在",name)
+	return false
+}
+
+func CheckPhoneValid(phone string)(bool)  {
+	db := db.DBConf()
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE phone=?", phone)
+	if err != nil {
+		return true
+	}
+	log.Warn("CheckPhoneValid：该手机号已被注册",phone)
 	return false
 }
 
 func CheckEmailValid(mail string)(bool)  {
-	var username string
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail).Scan(&username)
-	log.Info("用户名可用",err)
-	if len(username) == 0 {
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail)
+	if err != nil {
 		return true
 	}
+	log.Warn("CheckEmailValid：该邮箱已存在",mail)
 	return false
 }
 
 
 func CheckUserIdValid(userId string)(bool)  {
-	var username string
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId).Scan(&username)
-	log.Info("用户名可用",err)
-	if len(username) == 0 {
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId)
+	if err != nil {
 		return true
 	}
+	log.Warn("CheckUserIdValid：该用户Id已存在",userId)
 	return false
 }
 
@@ -130,6 +138,6 @@ func DeleteUserFromDB(uid int64)(error)  {
 
 func checkErr(err error) {
 	if err != nil {
-		log.Error(err.Error())
+		log.Warn(err.Error())
 	}
 }
