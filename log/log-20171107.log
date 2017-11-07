@@ -1,0 +1,6 @@
+2017-11-07 14:14:33 	 [ INFO] 	 <middleware.go:19>  	 Form:map[],Path:localhost:8081/
+2017-11-07 15:31:36 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_] password:[Admin12323] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 17:08:10 	 [ INFO] 	 <middleware.go:19>  	 Form:map[password:[Admin12323] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2] username:[Jack001_]],Path:localhost:8081/user/registeruser
+2017-11-07 17:18:10 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_] password:[Admin12323] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 17:27:53 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_] password:[Admin12323] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 17:28:12 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_] password:[Admin12323] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
