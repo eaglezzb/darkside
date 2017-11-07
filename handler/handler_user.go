@@ -14,11 +14,11 @@ import (
 func RegisterHandler(c *gin.Context )  {
 	user := m.NewUser()
 	user.UserName = c.PostForm("username")
-	nameValid := m.CheckUserNameValid(user.UserName)
-	if nameValid == false {
-		errCallBack(c,http.StatusOK,http.StatusBadRequest,"该用户名已被注册")
-		return
-	}
+	//nameValid := m.CheckUserNameValid(user.UserName)
+	//if nameValid == false {
+	//	errCallBack(c,http.StatusOK,http.StatusBadRequest,"该用户名已被注册")
+	//	return
+	//}
 
 	if !valideUserName(user.UserName) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名不复合要求")
@@ -46,12 +46,10 @@ func RegisterHandler(c *gin.Context )  {
 	user.UpdateTime = tm.Unix()
 	err := user.InsertUser()
 	if err != nil {
-		c.JSON(http.StatusOK,gin.H{
-			"code":http.StatusBadRequest,
-			"message":"用户生成失败",
-		})
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
+
 	c.JSON(http.StatusOK,gin.H{
 		"code":http.StatusOK,
 		"message":"注册成功",
