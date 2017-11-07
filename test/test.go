@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/brasbug/darkside/model"
 	"time"
+	"github.com/brasbug/darkside/email"
 )
 
 func DBTest()  {
@@ -18,6 +19,15 @@ func DBTest()  {
 	//if err != nil{
 	//	fmt.Println(err)
 	//}
+
+	fmt.Println("发送邮件")
+	mycontent := "go email"
+	mail := email.NewEmail("369495368@qq.com","test golang email",mycontent)
+	err := email.SendEmail(mail)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 }
 
 func userTest() {
