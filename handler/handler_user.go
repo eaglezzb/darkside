@@ -50,15 +50,25 @@ func RegisterHandler(c *gin.Context )  {
 }
 
 
-
-
 func LoginHandler(c *gin.Context)  {
-	//user := m.NewUser()
+	username := c.PostForm("username")
+	password := c.PostForm("password")
+	user ,err := m.FindUserFromDBByName(username)
+	if err != nil  {
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名错误")
+		return
+	}
+	if user.Password != password  {
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"密码错误")
+		return
+	}
 
 
-
-
-
+	c.JSON(http.StatusOK,gin.H{
+		"userinfo":user,
+		"code":http.StatusOK,
+		"message":"",
+	})
 }
 
 
@@ -70,7 +80,6 @@ func GetUserInfoHandler(c *gin.Context)  {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
-
 	c.JSON(http.StatusOK,gin.H{
 		"userinfo":user,
 		"code":http.StatusOK,
