@@ -9,7 +9,6 @@ import (
 	"strconv"
 	"regexp"
 	"time"
-	"fmt"
 )
 
 func RegisterHandler(c *gin.Context )  {
@@ -17,24 +16,18 @@ func RegisterHandler(c *gin.Context )  {
 	user.UserName = c.PostForm("username")
 	nameValid := m.CheckUserNameValid(user.UserName)
 	if nameValid == false {
-		fmt.Println("用户名不可yong")
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"该用户名已被注册")
 		return
 	}
 
 	if !valideUserName(user.UserName) {
-		c.JSON(http.StatusOK,gin.H{
-			"code":http.StatusBadRequest,
-			"message":"用户名不复合要求",
-		})
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名不复合要求")
 		return
 	}
 
 	user.Password = c.PostForm("password")
 	if !validePassword(user.Password) {
-		c.JSON(http.StatusOK,gin.H{
-			"code":http.StatusBadRequest,
-			"message":"密码不符合要求",
-		})
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"密码不符合要求")
 		return
 	}
 	user.Sex,_ = strconv.Atoi(c.PostForm("sex"))
@@ -44,10 +37,7 @@ func RegisterHandler(c *gin.Context )  {
 
 	phonestr := c.PostForm("phone")
 	if !validePhone(phonestr) {
-		c.JSON(http.StatusOK,gin.H{
-			"code":http.StatusBadRequest,
-			"message":"手机号不符合要求",
-		})
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,"手机号不符合要求")
 		return
 	}
 	user.Phone ,_ = strconv.ParseInt(phonestr,10,64)
@@ -66,6 +56,13 @@ func RegisterHandler(c *gin.Context )  {
 		"code":http.StatusOK,
 		"message":"注册成功",
 		"userinfo":user,
+	})
+}
+
+func errCallBack(c *gin.Context,status int,code int,message string)  {
+	c.JSON(status,gin.H{
+		"code":code,
+		"message":message,
 	})
 }
 
