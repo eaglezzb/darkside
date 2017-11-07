@@ -11,7 +11,7 @@ import (
 	"os"
 )
 
-func UploadFile(c *gin.Context)  {
+func UploadFileHandler(c *gin.Context)  {
 
 	c.Request.ParseMultipartForm(32<< 20)
 	file ,handler,err := c.Request.FormFile("uploadfile")
@@ -31,7 +31,7 @@ func UploadFile(c *gin.Context)  {
 
 }
 
-func UploadIndex(c *gin.Context)  {
+func UploadIndexHandler(c *gin.Context)  {
 	crutime := time.Now().Unix()
 	h := md5.New()
 	io.WriteString(h,strconv.FormatInt(crutime,10))
