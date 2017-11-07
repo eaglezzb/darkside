@@ -81,3 +81,8 @@
 2017-11-07 21:51:01 	 [ INFO] 	 <model_user.go:64>  	 用户名可用%!(EXTRA <nil>)
 2017-11-07 21:53:21 	 [ INFO] 	 <middleware.go:19>  	 Form:map[sex:[2] username:[Jack001_003] password:[admi3] departname:[技术部] phone:[13743223454] phoneprefix:[+86]],Path:localhost:8081/user/registeruser
 2017-11-07 21:53:21 	 [ INFO] 	 <model_user.go:64>  	 用户名可用%!(EXTRA *errors.errorString=sql: no rows in result set)
+2017-11-07 22:03:09 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_003] password:[admi3] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 22:03:44 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_003] password:[admi3] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 22:03:44 	 [ INFO] 	 <model_user.go:69>  	 用户名可用%!(EXTRA <nil>)
+2017-11-07 22:12:50 	 [ INFO] 	 <middleware.go:19>  	 Form:map[username:[Jack001_003] password:[admi3] departname:[技术部] phone:[13743223454] phoneprefix:[+86] sex:[2]],Path:localhost:8081/user/registeruser
+2017-11-07 22:12:50 	 [ INFO] 	 <model_user.go:80>  	 用户名可用%!(EXTRA <nil>)
