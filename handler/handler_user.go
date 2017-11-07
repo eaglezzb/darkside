@@ -14,11 +14,6 @@ import (
 func RegisterHandler(c *gin.Context )  {
 	user := m.NewUser()
 	user.UserName = c.PostForm("username")
-	//nameValid := m.CheckUserNameValid(user.UserName)
-	//if nameValid == false {
-	//	errCallBack(c,http.StatusOK,http.StatusBadRequest,"该用户名已被注册")
-	//	return
-	//}
 
 	if !valideUserName(user.UserName) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名不复合要求")
@@ -47,7 +42,6 @@ func RegisterHandler(c *gin.Context )  {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
-
 	c.JSON(http.StatusOK,gin.H{
 		"code":http.StatusOK,
 		"message":"注册成功",
@@ -64,6 +58,7 @@ func LoginHandler(c *gin.Context)  {
 
 
 
+
 }
 
 
@@ -72,12 +67,7 @@ func GetUserInfoHandler(c *gin.Context)  {
 	uid ,_ := strconv.ParseInt(c.Param("uid"),10,64)
 	user,err := m.FindUserFromDB(uid)
 	if err != nil{
-		log.Error(err.Error(),err)
-		c.JSON(http.StatusOK,gin.H{
-			"userinfo":nil,
-			"code":404,
-			"message":"未查询到该用户信息",
-		})
+		errCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
 
@@ -108,6 +98,7 @@ func validePhone(name string)bool  {
 }
 
 func errCallBack(c *gin.Context,status int,code int,message string)  {
+	log.Error(message,c.Request)
 	c.JSON(status,gin.H{
 		"code":code,
 		"message":message,

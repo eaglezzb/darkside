@@ -76,7 +76,7 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 
 func CheckUserNameValid(name string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name)
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name).Scan(&name)
 	if err != nil {
 		return true
 	}
@@ -86,7 +86,7 @@ func CheckUserNameValid(name string)(bool)  {
 
 func CheckPhoneValid(phone string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE phone=?", phone)
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE phone=?", phone).Scan(&phone)
 	if err != nil {
 		return true
 	}
@@ -96,7 +96,7 @@ func CheckPhoneValid(phone string)(bool)  {
 
 func CheckEmailValid(mail string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail)
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail).Scan(&mail)
 	if err != nil {
 		return true
 	}
@@ -107,7 +107,7 @@ func CheckEmailValid(mail string)(bool)  {
 
 func CheckUserIdValid(userId string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId)
+	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId).Scan(&userId)
 	if err != nil {
 		return true
 	}
