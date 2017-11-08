@@ -1,12 +1,12 @@
 package test
 
 import (
-	"github.com/flywithme/darkside/db"
+	"github.com/flywithbug/darkside/db"
 	"fmt"
-	"github.com/flywithme/darkside/model"
+	"github.com/flywithbug/darkside/model"
 	"time"
-	//"github.com/flywithme/darkside/email"
-	_ "github.com/flywithme/utils"
+	//"github.com/flywithbug/darkside/email"
+	_ "github.com/flywithbug/utils"
 )
 
 func DBTest()  {

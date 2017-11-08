@@ -1,8 +1,8 @@
 package model
 
 import (
-	"github.com/flywithme/darkside/db"
-	log "github.com/flywithme/log4go"
+	"github.com/flywithbug/darkside/db"
+	log "github.com/flywithbug/log4go"
 	"errors"
 	"fmt"
 )

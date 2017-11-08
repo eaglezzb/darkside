@@ -2,9 +2,9 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	m "github.com/flywithme/darkside/model"
+	m "github.com/flywithbug/darkside/model"
 	//"encoding/json"
-	log "github.com/flywithme/log4go"
+	log "github.com/flywithbug/log4go"
 	"net/http"
 	"strconv"
 	"regexp"

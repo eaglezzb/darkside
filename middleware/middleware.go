@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	log "github.com/flywithme/log4go"
+	log "github.com/flywithbug/log4go"
 	"sync"
 	"net/http"
 	"net"

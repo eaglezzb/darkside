@@ -2,13 +2,13 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/flywithme/darkside/handler"
+	"github.com/flywithbug/darkside/handler"
 	"github.com/itsjamie/gin-cors"
 	"time"
-	"github.com/flywithme/darkside/config"
-	"github.com/flywithme/darkside/db"
-	log "github.com/flywithme/log4go"
-	midw "github.com/flywithme/darkside/middleware"
+	"github.com/flywithbug/darkside/config"
+	"github.com/flywithbug/darkside/db"
+	log "github.com/flywithbug/log4go"
+	midw "github.com/flywithbug/darkside/middleware"
 )
 
 
