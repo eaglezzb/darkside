@@ -89,3 +89,126 @@
 2017-11-08 19:21:10 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Haryy)
 2017-11-08 19:21:11 	 [ INFO] 	 <middleware.go:22>  	 Form:map[],,Path:127.0.0.1/
 2017-11-08 19:21:11 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Haryy)
+2017-11-08 22:01:03 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:33 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:38 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:50 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:52 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:52 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:52 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:52 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:53 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:53 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:53 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:53 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:53 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:01:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:02:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:02:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:02:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:02:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:26 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:27 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:28 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:28 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:28 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:28 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:29 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:29 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:29 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:36 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:37 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:37 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:38 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:38 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:38 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:45 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:46 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:47 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:55 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:56 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:57 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:57 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:57 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:57 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:57 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:58 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:59 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:59 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:59 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:59 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:03:59 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:04:00 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:04:00 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:04:00 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:12 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:12 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:12 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:13 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:13 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:18 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:18 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:18 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:18 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:19 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:19 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:19 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:19 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:20 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:20 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:20 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 22:07:20 	 [ INFO] 	 <middleware.go:21>  	 Form:map[],,Path:127.0.0.1/
+2017-11-08 23:05:00 	 [ INFO] 	 <middleware.go:21>  	 Form:map[sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:05:36 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:01 	 [ INFO] 	 <middleware.go:21>  	 Form:map[password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:03 	 [ INFO] 	 <middleware.go:21>  	 Form:map[sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:04 	 [ INFO] 	 <middleware.go:21>  	 Form:map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:06 	 [ INFO] 	 <middleware.go:21>  	 Form:map[sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:32 	 [ INFO] 	 <middleware.go:21>  	 Form:map[password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:34 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:35 	 [ INFO] 	 <middleware.go:21>  	 Form:map[departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:35 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:06:35 	 [ INFO] 	 <middleware.go:21>  	 Form:map[password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:08:37 	 [ INFO] 	 <middleware.go:21>  	 Form:map[password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:09:54 	 [ INFO] 	 <middleware.go:21>  	 Form:map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:10:28 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:10:32 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:10:32 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack006)
+2017-11-08 23:10:32 	 [ERROR] 	 <handler_user.go:110>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Connection:[keep-alive] Postman-Token:[a449ed20-3f31-bbdb-6de5-6c134a3888bc] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Content-Length:[113] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Content-Type:[application/x-www-form-urlencoded] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6]] 0xc42025a040 <nil> 113 [] false localhost:8081 map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]] map[sex:[2] username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86]] <nil> map[] [::1]:53746 /user/registeruser <nil> <nil> <nil> 0xc42025a080})
+2017-11-08 23:10:32 	 [ INFO] 	 <middleware.go:21>  	 Form:map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:10:32 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack006)
+2017-11-08 23:10:32 	 [ERROR] 	 <handler_user.go:110>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Connection:[keep-alive] Content-Length:[113] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Content-Type:[application/x-www-form-urlencoded] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[f2d0682e-b29f-aefd-fd05-30026fe35856] Accept:[*/*] Accept-Encoding:[gzip, deflate, br]] 0xc42018e700 <nil> 113 [] false localhost:8081 map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]] map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]] <nil> map[] [::1]:53746 /user/registeruser <nil> <nil> <nil> 0xc42018e740})
+2017-11-08 23:18:16 	 [ INFO] 	 <middleware.go:21>  	 Form:map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:18:20 	 [ INFO] 	 <middleware.go:21>  	 Form:map[departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:18:21 	 [ INFO] 	 <middleware.go:21>  	 Form:map[departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:18:23 	 [ INFO] 	 <middleware.go:21>  	 Form:map[username:[Jack006] password:[admi3] departname:[技术部] phone:[137432234521] phoneprefix:[+86] sex:[2]],,Path:127.0.0.1/user/registeruser
+2017-11-08 23:26:32 	 [ INFO] 	 <middleware.go:21>  	 Form:map[phone:[137432234521] phoneprefix:[+86] sex:[2] username:[Jack006] password:[admi3] departname:[技术部]],,Path:127.0.0.1/user/registeruser
