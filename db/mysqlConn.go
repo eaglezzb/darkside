@@ -3,7 +3,7 @@ package db
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"database/sql"
-	"github.com/brasbug/darkside/config"
+	"github.com/flywithme/darkside/config"
 	"fmt"
 )
 

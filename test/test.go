@@ -1,16 +1,19 @@
 package test
 
 import (
-	"github.com/brasbug/darkside/db"
+	"github.com/flywithme/darkside/db"
 	"fmt"
-	"github.com/brasbug/darkside/model"
+	"github.com/flywithme/darkside/model"
 	"time"
-	"github.com/brasbug/darkside/email"
+	//"github.com/flywithme/darkside/email"
+	_ "github.com/flywithme/utils"
 )
 
 func DBTest()  {
 
 	//dbsqlTest()
+
+	//utils.Test()
 
 	userTest()
 	//user,_ := model.FindUserFromDB(20)
@@ -19,14 +22,14 @@ func DBTest()  {
 	//if err != nil{
 	//	fmt.Println(err)
 	//}
-
-	fmt.Println("发送邮件")
-	mycontent := "go email"
-	mail := email.NewEmail("369495368@qq.com","test golang email",mycontent)
-	err := email.SendEmail(mail)
-	if err != nil {
-		fmt.Println(err)
-	}
+	//
+	//fmt.Println("发送邮件")
+	//mycontent := "go email"
+	//mail := email.NewEmail("369495368@qq.com","test golang email",mycontent)
+	//err := email.SendEmail(mail)
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
 
 }
 
