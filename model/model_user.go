@@ -12,21 +12,23 @@ type BaseUserInfoModel struct {
 }
 
 type UserInfoModel struct {
-	Uid  		int64 		`json:"uid" form:"uid"`
-	UserName	string 		`json:"username" form:"username"`
-	Password	string  	`json:"password" form:"password"`
-	CreateTime	int64  		`json:"createtime" form:"createtime"`
-	UpdateTime	int64  		`json:"updatetime" form:"updatetime"`
-	Sex 		int 		`json:"sex" form:"sex"`     //0默认未设置 1男，2女
-	UserId 		string 		`json:"userid" form:"userid"`
-	DepartName	string		`json:"departname" form:"departname"`
-	Phone 		string		`json:"phone" form:"phone"`
-	PhonePrefix 	string		`json:"phoneprefix" form:"phoneprefix"`
-	Mail 		string		`json:"mail" form:"mail"`
-	OldPassword 	string		`json:"oldpassword" form:"oldpassword"`
-	Authtoken 	string		`json:"authtoken" form:"authtoken"`
-	State 		int 		`json:"state" form:"state"`
+	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
+	UserName	string 		`json:"username,omitempty" form:"username,omitempty"`
+	Password	string  	`json:"-" form:"password,omitempty"`
+	CreateTime	int64  		`json:"createtime,omitempty" form:"createtime,omitempty"`
+	UpdateTime	int64  		`json:"updatetime,omitempty" form:"updatetime,omitempty"`
+	Sex 		int 		`json:"sex,omitempty" form:"sex,omitempty"`     //0默认未设置 1男，2女
+	UserId 		string 		`json:"userid,omitempty" form:"userid,omitempty"`
+	DepartName	string		`json:"departname,omitempty" form:"departname,omitempty"`
+	Phone 		string		`json:"phone,omitempty" form:"phone,omitempty"`
+	PhonePrefix 	string		`json:"phoneprefix,omitempty" form:"phoneprefix,omitempty"`
+	Mail 		string		`json:"mail,omitempty" form:"mail,omitempty"`
+	OldPassword 	string		`json:"-" form:"oldpassword,omitempty"`
+	Authtoken 	string		`json:"authtoken,omitempty" form:"authtoken,omitempty"`
+	State 		int 		`json:"state,omitempty" form:"state,omitempty"`
 }
+
+
 
 
 
@@ -117,8 +119,10 @@ func CheckUserIdValid(userId string)(bool)  {
 func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE uid=?", uid).Scan(&user.Uid,
-		 &user.UserName, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
+	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE uid=?", uid).
+		Scan(&user.Uid,
+		 &user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	checkErr(err)
 	return user,err
 }
@@ -126,8 +130,10 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 func FindUserFromDBByName(name string)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, password, departname, createtime, updatetime, sex, userId, phone, phoneprefix FROM userinfo WHERE username=?", name).Scan(&user.Uid,
-		&user.UserName, &user.Password, &user.DepartName, &user.CreateTime, &user.UpdateTime, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix)
+	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+		Scan(&user.Uid,
+		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	checkErr(err)
 	return user,err
 }
