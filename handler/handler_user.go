@@ -8,32 +8,26 @@ import (
 	"net/http"
 	"strconv"
 	"regexp"
+	"github.com/gin-gonic/gin/json"
 	"time"
+	_ "fmt"
 )
 
 func RegisterHandler(c *gin.Context )  {
 	user := m.NewUser()
-	user.UserName = c.PostForm("username")
-
+	json.NewDecoder(c.Request.Body).Decode(&user)
 	if !valideUserName(user.UserName) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名不复合要求")
 		return
 	}
-
-	user.Password = c.PostForm("password")
 	if !validePassword(user.Password) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"密码不符合要求")
 		return
 	}
-	user.Sex,_ = strconv.Atoi(c.PostForm("sex"))
-	user.DepartName = c.PostForm("departname")
-	user.PhonePrefix = c.PostForm("phoneprefix")
-	user.Phone  = c.PostForm("phone")
-	if !validePhone(c.PostForm("phone")) {
+	if !validePhone(user.Phone) {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"手机号不符合要求")
 		return
 	}
-	user.Phone  = c.PostForm("phone")
 	tm := time.Now()
 	user.CreateTime = tm.Unix()
 	user.UpdateTime = tm.Unix()
@@ -42,6 +36,7 @@ func RegisterHandler(c *gin.Context )  {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
+
 	c.JSON(http.StatusOK,gin.H{
 		"code":http.StatusOK,
 		"message":"注册成功",
@@ -51,21 +46,22 @@ func RegisterHandler(c *gin.Context )  {
 
 
 func LoginHandler(c *gin.Context)  {
-	username := c.PostForm("username")
-	password := c.PostForm("password")
-	user ,err := m.FindUserFromDBByName(username)
+	user := m.NewUser()
+	json.NewDecoder(c.Request.Body).Decode(&user)
+
+	dbUser ,err := m.FindUserFromDBByName(user.UserName)
 	if err != nil  {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名错误")
 		return
 	}
-	if user.Password != password  {
+	if dbUser.Password != user.Password  {
 		errCallBack(c,http.StatusOK,http.StatusBadRequest,"密码错误")
 		return
 	}
-
+	user.Password = ""
 
 	c.JSON(http.StatusOK,gin.H{
-		"userinfo":user,
+		"userinfo":dbUser,
 		"code":http.StatusOK,
 		"message":"",
 	})
