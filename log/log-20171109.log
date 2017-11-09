@@ -1,0 +1,93 @@
+2017-11-09 15:57:33 	 [ INFO] 	 <middleware.go:20>  	 Form:map[{
+	"username":"someone",
+	"password":"p@ssword"
+}:[]],,Path:127.0.0.1/user/registeruser
+2017-11-09 15:57:52 	 [ INFO] 	 <middleware.go:20>  	 Form:map[{
+	"username":"someone",
+	"password":"p@ssword"
+}:[]],,Path:127.0.0.1/user/registeruser
+2017-11-09 15:58:05 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 15:58:21 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 15:58:22 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 15:58:22 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:03:05 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:03:05 	 [ERROR] 	 <handler_user.go:110>  	 用户名不复合要求%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Connection:[keep-alive] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[d5f32a64-5d9a-3dea-748c-867572f44e27] Accept-Encoding:[gzip, deflate, br] Content-Length:[49] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Content-Type:[application/json] Accept:[*/*] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6]] 0xc4201d29c0 <nil> 49 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61303 /user/registeruser <nil> <nil> <nil> 0xc4201d2a00})
+2017-11-09 16:12:20 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:12:20 	 [ERROR] 	 <handler_user.go:110>  	 用户名不复合要求%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Connection:[keep-alive] Accept:[*/*] User-Agent:[JSON%20Accelerator/112 CFNetwork/811.5.4 Darwin/16.7.0 (x86_64)] Accept-Language:[zh-cn] Content-Length:[0] Accept-Encoding:[gzip, deflate]] {} <nil> 0 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61564 /user/registeruser <nil> <nil> <nil> 0xc42018e700})
+2017-11-09 16:13:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:14:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:01 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:04 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:04 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:15:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:19:43 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:19:54 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:20:19 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:22:15 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:23:17 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:23:17 	 [ERROR] 	 <handler_user.go:103>  	 手机号不符合要求%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Content-Length:[133] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Content-Type:[application/json] Accept-Encoding:[gzip, deflate, br] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Postman-Token:[a16ea46b-b276-0f71-4670-87d6bb03b543] Accept:[*/*]] 0xc4201c69c0 <nil> 133 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61774 /user/registeruser <nil> <nil> <nil> 0xc4201c6a00})
+2017-11-09 16:23:44 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:23:44 	 [ERROR] 	 <handler_user.go:105>  	 手机号不符合要求%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Content-Length:[133] Cache-Control:[no-cache] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[c26f594e-16f5-e577-35fc-8cffe99a0518] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Connection:[keep-alive] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6]] 0xc4201bca00 <nil> 133 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61777 /user/registeruser <nil> <nil> <nil> 0xc4201bca40})
+2017-11-09 16:23:56 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:23:56 	 [ERROR] 	 <handler_user.go:105>  	 手机号不符合要求%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[242180a2-8768-408f-491e-38c336b64654] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Content-Length:[134] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive]] 0xc4201d20c0 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61777 /user/registeruser <nil> <nil> <nil> 0xc4201d2100})
+2017-11-09 16:24:31 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:24:32 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack006)
+2017-11-09 16:24:32 	 [ERROR] 	 <handler_user.go:105>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Content-Length:[134] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Postman-Token:[4d8fc2e7-b3f1-e129-712e-29dac9ee8568] Connection:[keep-alive] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6]] 0xc42018eec0 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61784 /user/registeruser <nil> <nil> <nil> 0xc42018ef00})
+2017-11-09 16:24:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:24:35 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack006)
+2017-11-09 16:24:35 	 [ERROR] 	 <handler_user.go:105>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[33dd5b0c-b8ae-673a-2db8-ae564f63fc18] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Content-Length:[134] Cache-Control:[no-cache] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive]] 0xc42018f280 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61784 /user/registeruser <nil> <nil> <nil> 0xc42018f2c0})
+2017-11-09 16:24:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:24:35 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack006)
+2017-11-09 16:24:35 	 [ERROR] 	 <handler_user.go:105>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Connection:[keep-alive] Content-Length:[134] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[658b56d9-a9ae-9ad4-8128-b87f66cd1062] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br]] 0xc42023a200 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61784 /user/registeruser <nil> <nil> <nil> 0xc42023a240})
+2017-11-09 16:24:40 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:24:43 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:24:43 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack008)
+2017-11-09 16:24:43 	 [ERROR] 	 <handler_user.go:105>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Cache-Control:[no-cache] Content-Type:[application/json] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[c942f49e-772c-f27d-1fd3-5affc4f24dbb] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Content-Length:[134]] 0xc42023a4c0 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61784 /user/registeruser <nil> <nil> <nil> 0xc42023a500})
+2017-11-09 16:27:33 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:28:45 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:28:47 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:28:47 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:22 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:23 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:27 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:29:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:29:35 	 [ WARN] 	 <model_user.go:90>  	 CheckPhoneValid：该手机号已被注册%!(EXTRA string=Jack008)
+2017-11-09 16:29:35 	 [ERROR] 	 <handler_user.go:104>  	 该手机号已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Postman-Token:[bff95614-d913-4e8a-720b-781faa248ffb] Connection:[keep-alive] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Content-Type:[application/json] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Content-Length:[134] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36]] 0xc42025e740 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61820 /user/registeruser <nil> <nil> <nil> 0xc42025e780})
+2017-11-09 16:29:36 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:29:36 	 [ WARN] 	 <model_user.go:90>  	 CheckPhoneValid：该手机号已被注册%!(EXTRA string=Jack008)
+2017-11-09 16:29:36 	 [ERROR] 	 <handler_user.go:104>  	 该手机号已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Postman-Token:[2e03a0d3-3516-a27c-0f60-cafb623912b9] Accept-Encoding:[gzip, deflate, br] Content-Length:[134] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Content-Type:[application/json] Accept:[*/*] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop]] 0xc42025e900 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61820 /user/registeruser <nil> <nil> <nil> 0xc42025e940})
+2017-11-09 16:29:37 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:29:37 	 [ WARN] 	 <model_user.go:90>  	 CheckPhoneValid：该手机号已被注册%!(EXTRA string=Jack008)
+2017-11-09 16:29:37 	 [ERROR] 	 <handler_user.go:104>  	 该手机号已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6] Connection:[keep-alive] Content-Length:[134] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Accept:[*/*] Accept-Encoding:[gzip, deflate, br] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Postman-Token:[f2044b23-f533-4722-d77f-4db8ed8e3a6c] Content-Type:[application/json]] 0xc42018ed00 <nil> 134 [] false localhost:8081 map[] map[] <nil> map[] [::1]:61820 /user/registeruser <nil> <nil> <nil> 0xc42018ed40})
+2017-11-09 16:29:45 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:56:42 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-09 16:56:42 	 [ WARN] 	 <model_user.go:80>  	 CheckUserNameValid：该用户名已存在%!(EXTRA string=Jack009)
+2017-11-09 16:56:42 	 [ERROR] 	 <handler_user.go:104>  	 该用户名已被注册%!(EXTRA *http.Request=&{POST /user/registeruser HTTP/1.1 1 1 map[User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36] Cache-Control:[no-cache] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Postman-Token:[7f49e3a7-a0c8-680e-5dfc-7c3f79cfe10a] Accept:[*/*] Connection:[keep-alive] Content-Length:[130] Accept-Encoding:[gzip, deflate, br] Content-Type:[application/json] Accept-Language:[zh-CN,zh;q=0.8,en;q=0.6]] 0xc42018f000 <nil> 130 [] false localhost:8081 map[] map[] <nil> map[] [::1]:62787 /user/registeruser <nil> <nil> <nil> 0xc42018f040})
+2017-11-09 16:56:47 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:56:47 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-09 16:56:58 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login

@@ -9,13 +9,13 @@ import (
 	_ "github.com/flywithbug/utils"
 )
 
-func DBTest()  {
+func Test()  {
 
 	//dbsqlTest()
 
 	//utils.Test()
 
-	userTest()
+	//userTest()
 	//user,_ := model.FindUserFromDB(20)
 	//fmt.Println(user)
 	//err := model.DeleteUserFromDB(111)
