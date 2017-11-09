@@ -28,6 +28,9 @@ type UserInfoModel struct {
 	State 		int 		`json:"state" form:"state"`
 }
 
+
+
+
 func NewUser() UserInfoModel {
 	return UserInfoModel{}
 }
@@ -38,7 +41,6 @@ func (user *UserInfoModel)ToString()(desc string)  {
 }
 
 func (user *UserInfoModel)InsertUser()(error){
-
 	if CheckUserNameValid(user.UserName) == false{
 		err := errors.New("该用户名已被注册")
 		return err
