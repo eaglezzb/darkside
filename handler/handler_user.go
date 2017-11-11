@@ -57,6 +57,7 @@ func LoginHandler(c *gin.Context) {
 
 	user := m.NewUser()
 	err := c.BindJSON(&user)
+	fmt.Println(err,user)
 	if err != nil {
 		aRespon.SetErrorInfo(http.StatusBadRequest, "Params invalid " + err.Error())
 		return
