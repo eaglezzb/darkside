@@ -4,23 +4,20 @@ import (
 	"github.com/gin-gonic/gin"
 	m "github.com/flywithbug/darkside/model"
 	 "github.com/flywithbug/darkside/common"
-	"github.com/gin-gonic/gin/json"
 	d "github.com/flywithbug/darkside/data"
 	"time"
 	_ "fmt"
-	"reflect"
 	"fmt"
 	"net/http"
 	"strconv"
 )
 
 func RegisterHandler(c *gin.Context )  {
-	user := m.NewUser()
 	aRespon := d.NewResponse()
 	defer func() {
 		c.JSON(http.StatusOK,aRespon)
 	}()
-
+	user := m.NewUser()
 	err := c.BindJSON(&user)
 	fmt.Println(user,err)
 	if err != nil{
@@ -52,63 +49,41 @@ func RegisterHandler(c *gin.Context )  {
 }
 
 
-func LoginHandler(c *gin.Context)  {
+func LoginHandler(c *gin.Context) {
+	aRespon := d.NewResponse()
+	defer func() {
+		c.JSON(http.StatusOK, aRespon)
+	}()
+
 	user := m.NewUser()
-	err := json.NewDecoder(c.Request.Body).Decode(&user)
-	if err != nil  {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"数据解析错误")
+	err := c.BindJSON(&user)
+	if err != nil {
+		aRespon.SetErrorInfo(http.StatusBadRequest, "Params invalid " + err.Error())
 		return
 	}
-	dbUser ,err := m.FindUserFromDBByName(user.UserName)
-	if err != nil  {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名错误")
+	dbUser, err := m.CheckUserNameAndPass(user.UserName, user.Password)
+	if err != nil {
+		aRespon.SetErrorInfo(http.StatusBadRequest, err.Error())
 		return
 	}
-	fmt.Println(dbUser.Password, user.Password)
-	if dbUser.Password != user.Password  {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"密码错误")
-		return
-	}
-
-	c.JSON(http.StatusOK,gin.H{
-		"userinfo":dbUser,
-		"code":http.StatusOK,
-		"message":"",
-	})
-}
-
-
-
-func Struct2Map(obj interface{}) map[string]interface{} {
-	t := reflect.TypeOf(obj)
-	v := reflect.ValueOf(obj)
-
-	var data = make(map[string]interface{})
-	for i := 0; i < t.NumField(); i++ {
-		data[t.Field(i).Name] = v.Field(i).Interface()
-	}
-	return data
+	aRespon.AddResponseInfo("user", dbUser)
 }
 
 
 //user/:uid
 func GetUserInfoHandler(c *gin.Context)  {
+	aRespon := d.NewResponse()
+	defer func() {
+		c.JSON(http.StatusOK, aRespon)
+	}()
 	uid ,_ := strconv.ParseInt(c.Param("uid"),10,64)
 	user,err := m.FindUserFromDB(uid)
-	jsons,_ := json.Marshal(user)
-	fmt.Println(string(jsons))
-
-
 	if err != nil{
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
 		return
 	}
 	user.Password = ""
 	user.OldPassword = ""
-	c.JSON(http.StatusOK,gin.H{
-		"userinfo":user,
-		"code":http.StatusOK,
-		"message":"",
-	})
+	aRespon.AddResponseInfo("user",user)
 }
 

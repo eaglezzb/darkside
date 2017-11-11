@@ -14,7 +14,7 @@ type BaseUserInfoModel struct {
 type UserInfoModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
 	UserName	string 		`json:"username,omitempty" form:"username,omitempty"`
-	Password	string  	`json:"-" form:"password,omitempty"`
+	Password	string  	`json:"password,omitempty" form:"password,omitempty"`
 	CreateTime	int64  		`json:"createtime,omitempty" form:"createtime,omitempty"`
 	UpdateTime	int64  		`json:"updatetime,omitempty" form:"updatetime,omitempty"`
 	Sex 		int 		`json:"sex,omitempty" form:"sex,omitempty"`     //0默认未设置 1男，2女
@@ -23,12 +23,10 @@ type UserInfoModel struct {
 	Phone 		string		`json:"phone,omitempty" form:"phone,omitempty"`
 	PhonePrefix 	string		`json:"phoneprefix,omitempty" form:"phoneprefix,omitempty"`
 	Mail 		string		`json:"mail,omitempty" form:"mail,omitempty"`
-	OldPassword 	string		`json:"-" form:"oldpassword,omitempty"`
+	OldPassword 	string		`json:"oldpassword,omitempty" form:"oldpassword,omitempty"`
 	Authtoken 	string		`json:"authtoken,omitempty" form:"authtoken,omitempty"`
 	State 		int 		`json:"state,omitempty" form:"state,omitempty"`
 }
-
-
 
 
 
@@ -44,12 +42,12 @@ func (user *UserInfoModel)ToString()(desc string)  {
 
 func (user *UserInfoModel)InsertUser()(error){
 	if CheckUserNameValid(user.UserName) == false{
-		err := errors.New("该用户名已被注册")
+		err := errors.New("username already exists")
 		return err
 	}
 
 	if CheckPhoneValid(user.Phone) == false{
-		err := errors.New("该手机号已被注册")
+		err := errors.New("phone number already exists")
 		return err
 	}
 
@@ -63,8 +61,8 @@ func (user *UserInfoModel)InsertUser()(error){
 
 func (user *UserInfoModel)UpdateIntoDB()(error)  {
 	if user.Uid == 0 {
-		log.Error("更新失败，找不到主键Uid")
-		return errors.New("更新失败，找不到主键Uid")
+		log.Error("update faild，Pri key Uid not found")
+		return errors.New("update faild，Pri key Uid not found")
 	}
 	db := db.DBConf()
 	stmt, err := db.Prepare("UPDATE userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
@@ -81,7 +79,7 @@ func CheckUserNameValid(name string)(bool)  {
 	if err != nil {
 		return true
 	}
-	log.Warn("CheckUserNameValid：该用户名已存在",name)
+	log.Warn("username already exist",name)
 	return false
 }
 
@@ -91,7 +89,7 @@ func CheckPhoneValid(phone string)(bool)  {
 	if err != nil {
 		return true
 	}
-	log.Warn("CheckPhoneValid：该手机号已被注册",phone)
+	log.Warn("phone number already exists",phone)
 	return false
 }
 
@@ -101,7 +99,7 @@ func CheckEmailValid(mail string)(bool)  {
 	if err != nil {
 		return true
 	}
-	log.Warn("CheckEmailValid：该邮箱已存在",mail)
+	log.Warn("mail already exists",mail)
 	return false
 }
 
@@ -112,7 +110,7 @@ func CheckUserIdValid(userId string)(bool)  {
 	if err != nil {
 		return true
 	}
-	log.Warn("CheckUserIdValid：该用户Id已存在",userId)
+	log.Warn("CheckUserIdValid：userid already exists",userId)
 	return false
 }
 
@@ -134,6 +132,26 @@ func FindUserFromDBByName(name string)(UserInfoModel,error)  {
 		Scan(&user.Uid,
 		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
+	user.Password = ""
+	user.OldPassword = ""
+	checkErr(err)
+	return user,err
+}
+
+func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
+	var user UserInfoModel
+	db := db.DBConf()
+	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+		Scan(&user.Uid,
+		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
+
+	if user.Password != pass {
+		err = errors.New("password not right")
+		user = NewUser()
+	}
+	user.Password = ""
+	user.OldPassword = ""
 	checkErr(err)
 	return user,err
 }
