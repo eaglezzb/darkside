@@ -3,7 +3,7 @@ package common
 import (
 	"regexp"
 	"github.com/gin-gonic/gin"
-	log "github.com/brasbug/log4go"
+	log "github.com/flywithbug/log4go"
 )
 
 
