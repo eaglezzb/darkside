@@ -1,0 +1,24 @@
+2017-11-12 00:34:19 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:34:19 	 [ WARN] 	 <model_user.go:173>  	 Error 1054: Unknown column 'extend' in 'field list'
+2017-11-12 00:34:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:36:23 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:36:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:36:25 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '1230202102' for key 'PRIMARY'
+2017-11-12 00:36:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:36:26 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '1230202102' for key 'PRIMARY'
+2017-11-12 00:39:03 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:39:03 	 [ WARN] 	 <model_user.go:173>  	 Error 1364: Field 'ncode' doesn't have a default value
+2017-11-12 00:39:03 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '1230202102' for key 'PRIMARY'
+2017-11-12 00:39:37 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:39:37 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '1230202102' for key 'PRIMARY'
+2017-11-12 00:40:30 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:40:30 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '0' for key 'PRIMARY'
+2017-11-12 00:43:23 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:24 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:45 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:46 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:46 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 00:43:46 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
