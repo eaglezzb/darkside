@@ -3,45 +3,52 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	m "github.com/flywithbug/darkside/model"
-	"net/http"
-	"strconv"
-	"github.com/flywithbug/darkside/common"
+	 "github.com/flywithbug/darkside/common"
 	"github.com/gin-gonic/gin/json"
+	d "github.com/flywithbug/darkside/data"
 	"time"
 	_ "fmt"
 	"reflect"
 	"fmt"
+	"net/http"
+	"strconv"
 )
 
 func RegisterHandler(c *gin.Context )  {
 	user := m.NewUser()
-	json.NewDecoder(c.Request.Body).Decode(&user)
+	aRespon := d.NewResponse()
+	defer func() {
+		c.JSON(http.StatusOK,aRespon)
+	}()
+
+	err := c.BindJSON(&user)
+	fmt.Println(user,err)
+	if err != nil{
+		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+err.Error())
+		return
+	}
+
 	if !common.ValideUserName(user.UserName) {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名不复合要求")
+		aRespon.SetErrorInfo(http.StatusBadRequest,"username invalid")
 		return
 	}
 	if !common.ValidePassword(user.Password) {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"密码不符合要求")
+		aRespon.SetErrorInfo(http.StatusBadRequest,"password invalid ")
 		return
 	}
 	if !common.ValidePhone(user.Phone) {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"手机号不符合要求")
+		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
 	}
 	tm := time.Now()
 	user.CreateTime = tm.Unix()
 	user.UpdateTime = tm.Unix()
-	err := user.InsertUser()
+	err = user.InsertUser()
 	if err != nil {
-		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(http.StatusBadRequest,"db insert faild "+err.Error())
 		return
 	}
-
-	c.JSON(http.StatusOK,gin.H{
-		"code":http.StatusOK,
-		"message":"注册成功",
-		"userinfo":user,
-	})
+	aRespon.AddResponseInfo("user",user)
 }
 
 
@@ -57,6 +64,7 @@ func LoginHandler(c *gin.Context)  {
 		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"用户名错误")
 		return
 	}
+	fmt.Println(dbUser.Password, user.Password)
 	if dbUser.Password != user.Password  {
 		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,"密码错误")
 		return
@@ -95,6 +103,8 @@ func GetUserInfoHandler(c *gin.Context)  {
 		common.ErrCallBack(c,http.StatusOK,http.StatusBadRequest,err.Error())
 		return
 	}
+	user.Password = ""
+	user.OldPassword = ""
 	c.JSON(http.StatusOK,gin.H{
 		"userinfo":user,
 		"code":http.StatusOK,
