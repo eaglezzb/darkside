@@ -30,7 +30,18 @@ func Test()  {
 	//if err != nil {
 	//	fmt.Println(err)
 	//}
+	testPhoneDB()
+}
 
+func testPhoneDB()  {
+	var telModel model.SMSTXModel
+	telModel.Messag = "abdadasd"
+	telModel.SMStype = 0;
+	telModel.Time = time.Now().Unix()
+	telModel.Mobile = 138292911
+	telModel.TelModel.Code = 232
+	telModel.TelModel.Mobile = telModel.Mobile
+	fmt.Println(telModel.InsertSMSInfo())
 }
 
 func userTest() {
