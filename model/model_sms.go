@@ -25,8 +25,8 @@ type SMSTXModel struct {
 type TelephoneModel struct {
 	Code		string 			`json:"code,omitempty" form:"ncode,omitempty"`
 	Mobile		string 			`json:"mobile,omitempty" form:"mobile,omitempty"`
+	Type		string 			`json:"type,omitempty" form:"type,omitempty"`
 }
-
 
 func (sms *SMSTXModel)InsertSMSInfo()error {
 	fmt.Println(sms)
@@ -34,21 +34,38 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 	stmt, err := db.Prepare("INSERT smstx SET type=?,message=?,result=?,time=?,ext=?,mobile=?,ncode=?,errmsg=?,sid=?,fee=?,smscode=?")
 	checkSMSErr(err)
 	_, err = stmt.Exec(sms.SMStype,sms.Messag,sms.Result,sms.Time,sms.Ext,sms.Mobile,sms.Ncode,sms.Errmsg,sms.Sid,sms.Fee,sms.Smscode)
-	checkSMSErr(err)
-
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	//手机数据短信send次数自增
 	stmt, err = db.Prepare("INSERT telephone SET mobile=?,ncode=? on duplicate key update scount=scount+1,ncode=?")
 	checkSMSErr(err)
-	_, err1 := stmt.Exec(sms.TelModel.Mobile,sms.TelModel.Code,sms.TelModel.Code)
-	checkSMSErr(err1)
+	_, err1 := stmt.Exec(sms.Mobile,sms.Ncode,sms.Ncode)
+	if err1 != nil {
+		log.Warn(err1.Error())
+	}
 	return err
 }
 
-//func FindSMSRecBy()  {
+
+
+//func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
+//	var user UserInfoModel
+//	db := db.DBConf()
+//	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+//		Scan(&user.Uid,
+//		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+//		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 //
+//	if user.Password != pass {
+//		err = errors.New("password not right")
+//		user = NewUser()
+//	}
+//	user.Password = ""
+//	user.OldPassword = ""
+//	checkErr(err)
+//	return user,err
 //}
-
-
 
 
 func checkSMSErr(err error) {
