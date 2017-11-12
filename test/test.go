@@ -2,11 +2,14 @@ package test
 
 import (
 	"github.com/flywithbug/darkside/db"
-	"fmt"
 	"github.com/flywithbug/darkside/model"
 	"time"
 	//"github.com/flywithbug/darkside/email"
 	_ "github.com/flywithbug/utils"
+	_ "github.com/flywithbug/darkside/config"
+	"github.com/flywithbug/darkside/config"
+	"github.com/flywithbug/utils"
+	"fmt"
 )
 
 func Test()  {
@@ -30,17 +33,27 @@ func Test()  {
 	//if err != nil {
 	//	fmt.Println(err)
 	//}
-	testPhoneDB()
+	randomString()
+}
+
+func randomString()  {
+	fmt.Println(utils.RandSMSString(6))
 }
 
 func testPhoneDB()  {
+	fmt.Println(config.TomlConf().Smsc)
+
 	var telModel model.SMSTXModel
 	telModel.Messag = "abdadasd"
-	telModel.SMStype = 0;
+	telModel.SMStype = "0";
 	telModel.Time = time.Now().Unix()
-	telModel.Mobile = 138292911
-	telModel.TelModel.Code = 232
+	telModel.Mobile = "1382929110"
+	telModel.Smscode = "adb234"
+	telModel.TelModel.Code = "86"
 	telModel.TelModel.Mobile = telModel.Mobile
+	telModel.Result = 2
+	telModel.Ncode = "86"
+	telModel.Fee = 1
 	fmt.Println(telModel.InsertSMSInfo())
 }
 
@@ -52,6 +65,7 @@ func userTest() {
 	user.CreateTime = time.Now().Unix()
 	user.Password = "12345sdsd6"
 	user.DepartName = "技asdasd"
+
 	fmt.Println(user)
 	user.InsertUser()
 }

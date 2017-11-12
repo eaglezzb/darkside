@@ -38,3 +38,115 @@
 2017-11-12 02:20:20 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
 2017-11-12 02:20:20 	 [ WARN] 	 <model_user.go:173>  	 password not right
 2017-11-12 02:20:51 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-12 17:02:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:36:44 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:36:44 	 [ WARN] 	 <model_user.go:173>  	 Error 1366: Incorrect integer value: '' for column 'result' at row 1
+2017-11-12 18:37:42 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:37:42 	 [ WARN] 	 <model_user.go:173>  	 Error 1366: Incorrect integer value: '' for column 'fee' at row 1
+2017-11-12 18:38:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:39:48 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:39:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:39:49 	 [ WARN] 	 <model_user.go:173>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:41:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:41:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:55 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:55 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:58 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:58 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:58 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:58 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:58 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:58 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:59 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:59 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:59 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 18:44:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 18:44:59 	 [ INFO] 	 <model_sms.go:48>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 19:06:34 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:06:41 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:06:41 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:06:42 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:07:23 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:08:16 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:08:30 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:08:41 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:08:43 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:09:39 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:09:39 	 [ WARN] 	 <model_user.go:173>  	 Error 1366: Incorrect integer value: '' for column 'ncode' at row 1
+2017-11-12 19:11:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:11:09 	 [ WARN] 	 <model_sms.go:53>  	 Error 1366: Incorrect integer value: '' for column 'ncode' at row 1
+2017-11-12 19:11:09 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '138292911' for key 'PRIMARY'
+2017-11-12 19:11:56 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:09 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:09 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:10 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:10 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:10 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:10 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:11 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:12 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:12 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:12 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:12 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:12 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:12 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:12 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:12 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:13 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:13 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:13 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:13 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:13 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:14 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:14 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:14 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:14 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:24:14 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:24:14 	 [ WARN] 	 <model_sms.go:53>  	 Error 1062: Duplicate entry '1382929110' for key 'PRIMARY'
+2017-11-12 19:44:46 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:44:58 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:44:59 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:45:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:45:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:45:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:45:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:16 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:17 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:17 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:17 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:50 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:50 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:46:50 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:52:05 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-12 19:52:07 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/

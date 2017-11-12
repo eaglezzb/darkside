@@ -7,6 +7,10 @@ env = "dev"
 
 
 
+[sms]
+    appid = "1400048815"
+    appkey = "023328a2ffd090219ead91e7262ac155"
+
 [server]
     [server.dev]
     listen = ":8081"
