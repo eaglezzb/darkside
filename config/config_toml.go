@@ -25,9 +25,15 @@ type Mysql struct {
 type  Config struct {
 	Env     string 			`toml:"env"`
 	User    *User    		`toml:"user"`
+	Smsc    	*SMSKey    		`toml:"sms"`
 	Servers map[string]*Server 	`toml:"server"`
 	Mysqls map[string]*Mysql 	`toml:"mysql"`
 
+}
+
+type SMSKey struct {
+	AppID 	string  `toml:"appid"`
+	AppKey 	string  `toml:"appkey"`
 }
 
 var config *Config
@@ -43,6 +49,9 @@ func InitConf(p string)  {
 	}
 }
 
+func (s *Config)Sms()*SMSKey  {
+	return s.Smsc
+}
 func (s *Config)Server()*Server  {
 	return s.Servers[s.Env]
 }
