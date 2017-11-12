@@ -33,7 +33,7 @@ func Test()  {
 	//if err != nil {
 	//	fmt.Println(err)
 	//}
-	randomString()
+	testPhoneDB()
 }
 
 func randomString()  {
@@ -47,7 +47,7 @@ func testPhoneDB()  {
 	telModel.Messag = "abdadasd"
 	telModel.SMStype = "0";
 	telModel.Time = time.Now().Unix()
-	telModel.Mobile = "1382929110"
+	telModel.Mobile = "17602198928"
 	telModel.Smscode = "adb234"
 	telModel.TelModel.Code = "86"
 	telModel.TelModel.Mobile = telModel.Mobile
