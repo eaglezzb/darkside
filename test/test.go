@@ -4,11 +4,12 @@ import (
 	"github.com/flywithbug/darkside/db"
 	"github.com/flywithbug/darkside/model"
 	"time"
-	//"github.com/flywithbug/darkside/email"
+	"github.com/flywithbug/darkside/email"
 	_ "github.com/flywithbug/utils"
 	_ "github.com/flywithbug/darkside/config"
 	"github.com/flywithbug/darkside/config"
 	"github.com/flywithbug/utils"
+
 	"fmt"
 )
 
@@ -26,14 +27,17 @@ func Test()  {
 	//	fmt.Println(err)
 	//}
 	//
-	//fmt.Println("发送邮件")
-	//mycontent := "go email"
-	//mail := email.NewEmail("369495368@qq.com","test golang email",mycontent)
-	//err := email.SendEmail(mail)
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	testPhoneDB()
+	sendMail()
+
+}
+
+func sendMail()  {
+	fmt.Println("发送邮件")
+
+	mycontent := "go email"
+	mail := email.NewEmail("369495368@qq.com","案发现场-注册邮件验证",mycontent)
+	err := email.SendEmail(mail)
+	fmt.Println(err)
 }
 
 func randomString()  {
