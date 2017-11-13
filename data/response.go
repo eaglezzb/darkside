@@ -17,6 +17,10 @@ func (s Response) SetErrorInfo(errno int, msg string) {
 	s["errno"] = errno
 	s["msg"] = msg
 }
+func (s Response) SetSuccessInfo(code int, msg string) {
+	s["code"] = code
+	s["msg"] = msg
+}
 
 func (s Response) AddResponseInfo(key string, val interface{}) {
 	s[key] = val
