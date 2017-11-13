@@ -27,15 +27,30 @@ func Test()  {
 	//	fmt.Println(err)
 	//}
 	//
-	sendMail()
+	insertMail()
+
+}
+
+func insertMail()  {
+	mail := model.EmailInfoModel{}
+
+	mail.Mail = "2323@qq.com"
+	mail.Verifycode = "34la24"
+	mail.Message = "请查收验证码：12322"
+	mail.Type = 1
+	mail.Status = -1
+	mail.CreateTime = time.Now().Unix()
+
+	mail.InsertSMSInfo()
+
 
 }
 
 func sendMail()  {
 	fmt.Println("发送邮件")
 
-	mycontent := "go email"
-	mail := email.NewEmail("369495368@qq.com","案发现场-注册邮件验证",mycontent)
+	mycontent := "请查收验证码：12322"
+	mail := email.NewEmail("myworldmine@163.com","案发现场-注册邮件验证",mycontent)
 	err := email.SendEmail(mail)
 	fmt.Println(err)
 }
