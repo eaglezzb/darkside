@@ -29,7 +29,7 @@ func SendSMSHandler(c *gin.Context )  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
 	}
-	_ ,err = sendRegisterSMSCode(tel)
+	err = sendRegisterSMSCode(tel)
 	if err != nil{
 		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
 		return
@@ -38,7 +38,7 @@ func SendSMSHandler(c *gin.Context )  {
 }
 
 
-func sendRegisterSMSCode(tel model.TelephoneModel)(model.SMSTXModel,error)  {
+func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	sms := model.SMSTXModel{}
 	sms.Mobile = tel.Mobile
 	sms.Ncode = tel.Code
@@ -55,23 +55,23 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(model.SMSTXModel,error)  {
 	conf.AppKey = config.TomlConf().Smsc.AppKey
 	client, err := qcloudsms.NewClient(conf)
 	if err != nil {
-		return "",err
+		return err
 	}
 	smsReq, err := qcloudsms.SMSService(client)
 	//smsReq.
 	if err != nil {
-		return "",err
+		return err
 	}
 	ext := qcloudsms.SmsExt{}
 	ext.Type = 0
 	ext.NationCode =tel.Code
 	resp, err := smsReq.Send(tel.Mobile, sms.Messag,ext)
 	if err != nil{
-		return "",err
+		return err
 	}
 	if resp.Result != 0{
 		errs := fmt.Sprintf("%u  %s",resp.Result,resp.ErrMsg)
-		return "",errors.New(errs)
+		return errors.New(errs)
 	}
 	sms.Errmsg = resp.ErrMsg
 	sms.Sid = resp.Sid
@@ -79,8 +79,7 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(model.SMSTXModel,error)  {
 	sms.Ext = resp.Ext
 	sms.Fee = resp.Fee
 	sms.InsertSMSInfo()
-
-	return sms,err
+	return err
 
 }
 
