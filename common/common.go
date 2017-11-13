@@ -23,6 +23,11 @@ func ValidePhone(name string)bool  {
 	return reg.MatchString(name)
 }
 
+func ValideMail(mail string)bool  {
+	reg := regexp.MustCompile("^[A-Za-z0-9_.-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
+	return reg.MatchString(mail)
+}
+
 
 
 func ErrCallBack(c *gin.Context,status int,code int,message string)  {
