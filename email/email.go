@@ -10,7 +10,7 @@ const (
 	HOST        = "smtp.163.com"
 	SERVER_ADDR = "smtp.163.com:25"
 	USER        = "webflywithme@163.com" //发送邮件的邮箱
-	PASSWORD    = "web123456"         //发送邮件邮箱的密码
+	PASSWORD    = "Web1234567"         //发送邮件邮箱的密码
 )
 
 type Email struct {
