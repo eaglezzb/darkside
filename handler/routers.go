@@ -15,7 +15,8 @@ var routers = map[string]gin.HandlerFunc{
 	"GET      /user/:uid":GetUserInfoHandler,
 	"POST     /user/registeruser":RegisterHandler,
 	"POST     /user/login":LoginHandler,
-	"POST     /user/sms":SendSMSHandler,
+	"POST     /user/sms":SendSMSandler,
+	"POST     /user/mail":sendMailHandler,
 }
 
 
