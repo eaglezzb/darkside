@@ -29,26 +29,27 @@ func SendSMSHandler(c *gin.Context )  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
 	}
-	sms ,err := sendRegisterSMSCode(tel)
+	_ ,err = sendRegisterSMSCode(tel)
 	if err != nil{
 		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
 		return
 	}
-	aRespon.AddResponseInfo("sms",sms)
+	aRespon.SetSuccessInfo(http.StatusOK,"验证码发送成功")
 }
 
 
-func sendRegisterSMSCode(tel model.TelephoneModel)(string,error)  {
-
+func sendRegisterSMSCode(tel model.TelephoneModel)(model.SMSTXModel,error)  {
 	sms := model.SMSTXModel{}
 	sms.Mobile = tel.Mobile
 	sms.Ncode = tel.Code
 	sms.TelModel = tel
 	sms.SMStype = tel.Type
 	sms.Smscode = u.RandSMSString(6)
+	message := fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本短信.(http://www.flywithme.top)",sms.Smscode)
+
 	// "您的验证码是：" + sms.Smscode + " 如非本人操作，请忽略本短信.(http://www.flywithme.top)"
 	//"欢迎注册案发现场App，请访问http://www.flywithme.top/ 了解更多"
-	sms.Messag = "欢迎注册案发现场App，请访问http://www.flywithme.top/ 了解更多"
+	sms.Messag = message
 	conf := qcloudsms.NewClientConfig()
 	conf.AppID = config.TomlConf().Smsc.AppID
 	conf.AppKey = config.TomlConf().Smsc.AppKey
@@ -57,6 +58,7 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(string,error)  {
 		return "",err
 	}
 	smsReq, err := qcloudsms.SMSService(client)
+	//smsReq.
 	if err != nil {
 		return "",err
 	}
@@ -77,7 +79,8 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(string,error)  {
 	sms.Ext = resp.Ext
 	sms.Fee = resp.Fee
 	sms.InsertSMSInfo()
-	return sms.Smscode,err
+
+	return sms,err
 
 }
 
