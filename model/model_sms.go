@@ -19,6 +19,7 @@ type SMSTXModel struct {
 	Sid		string		`json:"sid,omitempty" form:"sid,omitempty"`
 	Fee		int		`json:"fee,omitempty" form:"fee,omitempty"`
 	Smscode		string		`json:"smscode,omitempty" form:"smscode,omitempty"`
+	Status           int 		`json:"status,omitempty" form:"status,omitempty"`
 	TelModel	TelephoneModel	`json:"tel,omitempty" form:"tel,omitempty"`
 }
 
@@ -31,9 +32,9 @@ type TelephoneModel struct {
 func (sms *SMSTXModel)InsertSMSInfo()error {
 	fmt.Println(sms)
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT smstx SET type=?,message=?,result=?,time=?,ext=?,mobile=?,ncode=?,errmsg=?,sid=?,fee=?,smscode=?")
+	stmt, err := db.Prepare("INSERT smstx SET type=?,message=?,result=?,time=?,ext=?,mobile=?,ncode=?,errmsg=?,sid=?,fee=?,smscode=?,status=?")
 	checkSMSErr(err)
-	_, err = stmt.Exec(sms.SMStype,sms.Messag,sms.Result,sms.Time,sms.Ext,sms.Mobile,sms.Ncode,sms.Errmsg,sms.Sid,sms.Fee,sms.Smscode)
+	_, err = stmt.Exec(sms.SMStype,sms.Messag,sms.Result,sms.Time,sms.Ext,sms.Mobile,sms.Ncode,sms.Errmsg,sms.Sid,sms.Fee,sms.Smscode,sms.Status)
 	if err != nil {
 		log.Warn(err.Error())
 	}
