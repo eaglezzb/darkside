@@ -4,6 +4,14 @@ import (
 	"github.com/flywithbug/darkside/db"
 	log "github.com/flywithbug/log4go"
 	"fmt"
+	"github.com/kataras/iris/core/errors"
+	"time"
+)
+const (
+	SMSStatusFaild           	= -1 //短信发送失败
+	SMSStatusUnChecked           	= 1 //未校验
+	SMSStatusChecked           	= 2 //已校验
+	SMSStatusOverTime           	= 3 //校验时超过有效时间
 )
 
 type SMSTXModel struct {
@@ -19,7 +27,7 @@ type SMSTXModel struct {
 	Sid		string		`json:"sid,omitempty" form:"sid,omitempty"`
 	Fee		int		`json:"fee,omitempty" form:"fee,omitempty"`
 	Smscode		string		`json:"smscode,omitempty" form:"smscode,omitempty"`
-	Status           int 		`json:"status,omitempty" form:"status,omitempty"`
+	Status          int 		`json:"status,omitempty" form:"status,omitempty"`
 	TelModel	TelephoneModel	`json:"tel,omitempty" form:"tel,omitempty"`
 }
 
@@ -48,6 +56,43 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 	return err
 }
 
+func MarkSmsVerifyCode(sms SMSTXModel)error  {
+	db := db.DBConf()
+	stmt,err := db.Prepare("update smstx set status=? where uid=?")
+	checkSMSErr(err)
+	if err != nil{
+		return err
+	}
+	_,err = stmt.Exec(SMSStatusChecked,sms.Uid)
+	checkSMSErr(err)
+	return err
+}
+
+func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  {
+	var sms SMSTXModel
+	db := db.DBConf()
+	err := db.QueryRow("SELECT uid, mobile, time, smscode, status FROM smstx WHERE mobile=?,smscode", phone,verifycode).
+			Scan(&sms.Uid,
+			&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status)
+
+	checkSMSErr(err)
+	if err != nil {
+		return sms,err
+	}
+	if sms.Status != SMSStatusUnChecked {
+		return sms, errors.New("invalid code")
+	}
+	
+	if time.Now().Unix() - sms.Time  > 1800{
+		stmt,err := db.Prepare("update smstx set status=? where uid=?")
+		checkSMSErr(err)
+		_,err = stmt.Exec(SMSStatusOverTime,sms.Uid)
+		checkSMSErr(err)
+		return sms,errors.New("verify time out")
+	}
+	return sms,nil
+
+}
 
 
 //func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
