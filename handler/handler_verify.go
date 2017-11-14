@@ -28,6 +28,10 @@ func SendSMSandler(c *gin.Context)  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+ err.Error())
 		return
 	}
+	if !common.ValideSMSType(tel.Type) {
+		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid - verify type not right")
+		return
+	}
 	if !common.ValidePhone(tel.Mobile) {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
@@ -48,24 +52,31 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	sms.TelModel = tel
 	sms.SMStype = tel.Type
 	sms.Smscode = strings.ToUpper(u.RandSMSString(6))
+	if sms.CheckDidSMSSend() {
+		return errors.New("wait 60s")
+	}
+
+	//TODO 后续根据不同的type 发送不同的短信模板
 	message := fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本短信.(http://www.flywithme.top)",sms.Smscode)
 
 	// "您的验证码是：" + sms.Smscode + " 如非本人操作，请忽略本短信.(http://www.flywithme.top)"
 	//"欢迎注册案发现场App，请访问http://www.flywithme.top/ 了解更多"
 	sms.Messag = message
-	conf := qcloudsms.NewClientConfig()
-	conf.AppID = config.TomlConf().Smsc.AppID
-	conf.AppKey = config.TomlConf().Smsc.AppKey
-	client, err := qcloudsms.NewClient(conf)
-	smsReq, err := qcloudsms.SMSService(client)
-	ext := qcloudsms.SmsExt{}
-	ext.Type = 0
-	ext.NationCode =tel.Code
 	sms.Time = time.Now().Unix()
 	sms.Status = model.SMSStatusUnChecked
+	var err error
 	if config.TomlConf().Debug() {
 		sms.Errmsg = "debug mock"
+		sms.Result = -2
 	}else {
+		conf := qcloudsms.NewClientConfig()
+		conf.AppID = config.TomlConf().Smsc.AppID
+		conf.AppKey = config.TomlConf().Smsc.AppKey
+		client, err := qcloudsms.NewClient(conf)
+		smsReq, err := qcloudsms.SMSService(client)
+		ext := qcloudsms.SmsExt{}
+		ext.Type = 0
+		ext.NationCode =tel.Code
 		resp, err := smsReq.Send(tel.Mobile, sms.Messag,ext)
 		sms.Errmsg = resp.ErrMsg
 		sms.Sid = resp.Sid
