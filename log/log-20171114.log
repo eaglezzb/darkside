@@ -1,0 +1,32 @@
+2017-11-14 23:06:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:07:45 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:07:45 	 [ WARN] 	 <model_user.go:85>  	 username already exist%!(EXTRA string=)
+2017-11-14 23:08:40 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:08:40 	 [ WARN] 	 <model_user.go:95>  	 phone number already exists%!(EXTRA string=)
+2017-11-14 23:10:48 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:10:48 	 [ WARN] 	 <model_user.go:95>  	 phone number already exists%!(EXTRA string=1376430772239)
+2017-11-14 23:11:57 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:11:57 	 [ WARN] 	 <model_user.go:95>  	 phone number already exists%!(EXTRA string=1376430772239)
+2017-11-14 23:15:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:15:35 	 [ WARN] 	 <model_sms.go:119>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode' at line 1
+2017-11-14 23:16:44 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:16:44 	 [ WARN] 	 <model_sms.go:119>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode' at line 1
+2017-11-14 23:17:18 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:17:18 	 [ WARN] 	 <model_sms.go:119>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode' at line 1
+2017-11-14 23:20:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:20:13 	 [ WARN] 	 <model_sms.go:124>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode' at line 1
+2017-11-14 23:20:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:20:35 	 [ WARN] 	 <model_sms.go:117>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode' at line 1
+2017-11-14 23:21:23 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:21:23 	 [ WARN] 	 <model_sms.go:121>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'smscode=?' at line 1
+2017-11-14 23:21:35 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:21:35 	 [ WARN] 	 <model_sms.go:121>  	 sql: no rows in result set
+2017-11-14 23:23:26 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:23:26 	 [ WARN] 	 <model_sms.go:118>  	 sql: no rows in result set
+2017-11-14 23:23:28 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:23:28 	 [ WARN] 	 <model_sms.go:118>  	 sql: no rows in result set
+2017-11-14 23:24:05 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:24:22 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:24:32 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:43:18 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-14 23:54:13 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/sms

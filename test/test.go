@@ -64,7 +64,7 @@ func testPhoneDB()  {
 
 	var telModel model.SMSTXModel
 	telModel.Messag = "abdadasd"
-	telModel.SMStype = "0";
+	telModel.SMStype = 1;
 	telModel.Time = time.Now().Unix()
 	telModel.Mobile = "17602198928"
 	telModel.Smscode = "adb234"
