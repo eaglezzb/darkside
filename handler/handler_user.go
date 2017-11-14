@@ -60,7 +60,7 @@ func RegisterHandler(c *gin.Context )  {
 
 	aRespon.AddResponseInfo("code",http.StatusOK)
 	aRespon.AddResponseInfo("user",user)
-	m.MarkSmsVerifyCode(sms,m.SMSStatusChecked)
+	sms.MarkSmsVerifyCode(m.SMSStatusChecked)
 
 
 }
