@@ -25,9 +25,9 @@ type Mysql struct {
 type  Config struct {
 	Env     string 			`toml:"env"`
 	User    *User    		`toml:"user"`
-	Smsc    	*SMSKey    		`toml:"sms"`
+	Smsc    *SMSKey    		`toml:"sms"`
 	Servers map[string]*Server 	`toml:"server"`
-	Mysqls map[string]*Mysql 	`toml:"mysql"`
+	Mysqls 	map[string]*Mysql 	`toml:"mysql"`
 
 }
 
@@ -40,6 +40,13 @@ var config *Config
 
 func TomlConf()*Config  {
 	return config
+}
+
+func (s *Config)Debug()bool  {
+	if s.Env == "dev" {
+		return true
+	}
+	return false
 }
 
 func InitConf(p string)  {
