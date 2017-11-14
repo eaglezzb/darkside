@@ -26,6 +26,9 @@ type UserInfoModel struct {
 	OldPassword 	string		`json:"oldpassword,omitempty" form:"oldpassword,omitempty"`
 	Authtoken 	string		`json:"authtoken,omitempty" form:"authtoken,omitempty"`
 	State 		int 		`json:"state,omitempty" form:"state,omitempty"`
+
+	RegisterType 	string          `json:"registertype,omitempty"`
+	VerifyCode      string 		`json:"verifycode,omitempty"`
 }
 
 
@@ -52,9 +55,9 @@ func (user *UserInfoModel)InsertUser()(error){
 	}
 
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix)
+	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State)
 	checkErr(err)
 	return err
 }
