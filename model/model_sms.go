@@ -97,7 +97,7 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 	}
 	return sms,nil
 }
-
+//todo 一天内只能发送10次验证码
 func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 	db := db.DBConf()
 	err := db.QueryRow("SELECT uid, mobile, time, smscode, status,type FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60).
