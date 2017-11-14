@@ -4,6 +4,7 @@ import (
 	"regexp"
 	"github.com/gin-gonic/gin"
 	log "github.com/flywithbug/log4go"
+	"strconv"
 )
 
 
@@ -22,6 +23,12 @@ func ValidePhone(name string)bool  {
 	reg := regexp.MustCompile("^[1-9][0-9]{4,13}$")
 	return reg.MatchString(name)
 }
+
+func ValideSMSType(smstype int)bool  {
+	reg := regexp.MustCompile("^[1-2]$")
+	return reg.MatchString(strconv.Itoa(smstype))
+}
+
 
 func ValideMail(mail string)bool  {
 	reg := regexp.MustCompile("^[A-Za-z0-9_.-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
