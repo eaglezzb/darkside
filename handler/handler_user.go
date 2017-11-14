@@ -37,17 +37,32 @@ func RegisterHandler(c *gin.Context )  {
 		return
 	}
 
-
+	sms ,err := m.CheckPhoneAndVerifyCode(user.Phone,user.VerifyCode)
+	if err != nil {
+		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+		return
+	}
+	if sms.SMStype != m.SMSTypeRegister {
+		aRespon.SetErrorInfo(http.StatusBadRequest,"Incorrect type of verification code")
+		return
+	}
 
 	tm := time.Now()
 	user.CreateTime = tm.Unix()
 	user.UpdateTime = tm.Unix()
 	err = user.InsertUser()
 	if err != nil {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"db insert faild "+err.Error())
+		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
 		return
 	}
+	user.VerifyCode = ""
+	user.Password = ""
+
+	aRespon.AddResponseInfo("code",http.StatusOK)
 	aRespon.AddResponseInfo("user",user)
+	m.MarkSmsVerifyCode(sms,m.SMSStatusChecked)
+
+
 }
 
 
