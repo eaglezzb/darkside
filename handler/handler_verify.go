@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"github.com/flywithbug/darkside/common"
-	e "github.com/flywithbug/darkside/email"
+	//e "github.com/flywithbug/darkside/email"
 	"github.com/kataras/iris/core/errors"
 	"fmt"
 	"time"
@@ -27,7 +27,6 @@ func SendSMSandler(c *gin.Context)  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+ err.Error())
 		return
 	}
-
 	if !common.ValidePhone(tel.Mobile) {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
@@ -40,52 +39,9 @@ func SendSMSandler(c *gin.Context)  {
 	aRespon.SetSuccessInfo(http.StatusOK,"验证码发送成功")
 }
 
-func sendMailHandler(c *gin.Context)  {
-	aRespon := d.NewResponse()
-	defer func() {
-		c.JSON(http.StatusOK,aRespon)
-	}()
-	mail := model.MailModel{}
-	err := c.BindJSON(&mail)
-	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+ err.Error())
-		return
-	}
-	if !common.ValideMail(mail.Email) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"mail  invalid ")
-		return
-	}
-	err = sendRegistEmailCode(mail)
-	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
-		return
-	}
-	aRespon.SetSuccessInfo(http.StatusOK,"验证码发送成功")
-
-}
-
-func sendRegistEmailCode(mail model.MailModel)error  {
-
-	email := model.EmailInfoModel{}
-	email.Mail = mail.Email
-	email.Type = mail.Type
-	email.Verifycode = strings.ToUpper(u.RandSMSString(6))
-	email.Status = 1
-	email.Message = fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本邮件.(http://www.flywithme.top)",email.Verifycode)
-
-	sendmail := e.NewEmail(email.Mail,"案发现场-注册邮件验证",email.Message)
-	err := e.SendEmail(sendmail)
-	if err != nil{
-		email.Status = -1
-	}
-	email.InsertSMSInfo()
-	return err
-}
-
 
 func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	sms := model.SMSTXModel{}
-	sms.Status = 1
 	sms.Mobile = tel.Mobile
 	sms.Ncode = tel.Code
 	sms.TelModel = tel
@@ -114,11 +70,59 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	if resp.Result != 0{
 		err =errors.New(fmt.Sprintf("%u  %s",resp.Result,resp.ErrMsg))
 	}
+	sms.Status = model.SMSStatusUnChecked
 	if err != nil{
-		sms.Status = -1
+		sms.Status = model.SMSStatusFaild
 	}
 	sms.InsertSMSInfo()
 	return err
 
 }
+
+
+
+
+
+//邮箱注册暂时关闭
+//func SendMailHandler(c *gin.Context)  {
+//	aRespon := d.NewResponse()
+//	defer func() {
+//		c.JSON(http.StatusOK,aRespon)
+//	}()
+//	mail := model.MailModel{}
+//	err := c.BindJSON(&mail)
+//	if err != nil{
+//		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+ err.Error())
+//		return
+//	}
+//	if !common.ValideMail(mail.Email) {
+//		aRespon.SetErrorInfo(http.StatusBadRequest,"mail  invalid ")
+//		return
+//	}
+//	err = sendRegistEmailCode(mail)
+//	if err != nil{
+//		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+//		return
+//	}
+//	aRespon.SetSuccessInfo(http.StatusOK,"验证码发送成功")
+//
+//}
+
+//func sendRegistEmailCode(mail model.MailModel)error  {
+//
+//	email := model.EmailInfoModel{}
+//	email.Mail = mail.Email
+//	email.Type = mail.Type
+//	email.Verifycode = strings.ToUpper(u.RandSMSString(6))
+//	email.Status = 1
+//	email.Message = fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本邮件.(http://www.flywithme.top)",email.Verifycode)
+//
+//	sendmail := e.NewEmail(email.Mail,"案发现场-注册邮件验证",email.Message)
+//	err := e.SendEmail(sendmail)
+//	if err != nil{
+//		email.Status = -1
+//	}
+//	email.InsertSMSInfo()
+//	return err
+//}
 
