@@ -14,6 +14,7 @@ import (
 	"fmt"
 	"time"
 	"strings"
+
 )
 
 func SendSMSandler(c *gin.Context)  {
@@ -61,18 +62,22 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	ext.Type = 0
 	ext.NationCode =tel.Code
 	sms.Time = time.Now().Unix()
-	resp, err := smsReq.Send(tel.Mobile, sms.Messag,ext)
-	sms.Errmsg = resp.ErrMsg
-	sms.Sid = resp.Sid
-	sms.Result = resp.Result
-	sms.Ext = resp.Ext
-	sms.Fee = resp.Fee
-	if resp.Result != 0{
-		err =errors.New(fmt.Sprintf("%u  %s",resp.Result,resp.ErrMsg))
-	}
 	sms.Status = model.SMSStatusUnChecked
-	if err != nil{
-		sms.Status = model.SMSStatusFaild
+	if config.TomlConf().Debug() {
+		sms.Errmsg = "debug mock"
+	}else {
+		resp, err := smsReq.Send(tel.Mobile, sms.Messag,ext)
+		sms.Errmsg = resp.ErrMsg
+		sms.Sid = resp.Sid
+		sms.Result = resp.Result
+		sms.Ext = resp.Ext
+		sms.Fee = resp.Fee
+		if resp.Result != 0{
+			err =errors.New(fmt.Sprintf("%u  %s",resp.Result,resp.ErrMsg))
+		}
+		if err != nil{
+			sms.Status = model.SMSStatusFaild
+		}
 	}
 	sms.InsertSMSInfo()
 	return err
