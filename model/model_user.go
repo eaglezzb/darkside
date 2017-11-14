@@ -44,7 +44,7 @@ func (user *UserInfoModel)ToString()(desc string)  {
 }
 
 func (user *UserInfoModel)InsertUser()(error){
-	if CheckUserNameValid(user.UserName) == false{
+	if len(user.UserName) >0 && CheckUserNameValid(user.UserName) == false{
 		err := errors.New("username already exists")
 		return err
 	}
@@ -88,7 +88,7 @@ func CheckUserNameValid(name string)(bool)  {
 
 func CheckPhoneValid(phone string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE phone=?", phone).Scan(&phone)
+	err := db.QueryRow("SELECT  phone FROM userinfo WHERE phone=?", phone).Scan(&phone)
 	if err != nil {
 		return true
 	}
