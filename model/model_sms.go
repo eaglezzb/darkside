@@ -12,11 +12,19 @@ const (
 	SMSStatusUnChecked           	= 1 //未校验
 	SMSStatusChecked           	= 2 //已校验
 	SMSStatusOverTime           	= 3 //校验时超过有效时间
+
+
+	SMSTypeRegister    		= "1" //注册
+	SMSTypeChangePassword		= "2" //修改密码
+
+
 )
+
+
 
 type SMSTXModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
-	SMStype 	string 		`json:"type,omitempty" form:"type,omitempty"`
+	SMStype 	string 		`json:"type,omitempty" form:"type,omitempty"`   //1 用户注册类型
 	Messag		string 		`json:"msg,omitempty" form:"message,omitempty"`
 	Result		int  		`json:"result,omitempty" form:"result,omitempty"`
 	Time		int64  		`json:"time,omitempty" form:"time,omitempty"`
@@ -34,7 +42,7 @@ type SMSTXModel struct {
 type TelephoneModel struct {
 	Code		string 			`json:"code,omitempty" form:"ncode,omitempty"`
 	Mobile		string 			`json:"mobile,omitempty" form:"mobile,omitempty"`
-	Type		string 			`json:"type,omitempty" form:"type,omitempty"`
+	Type		string 			`json:"type,omitempty" form:"type,omitempty"` //1 用户注册类型
 }
 
 func (sms *SMSTXModel)InsertSMSInfo()error {
@@ -56,14 +64,14 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 	return err
 }
 
-func MarkSmsVerifyCode(sms SMSTXModel)error  {
+func MarkSmsVerifyCode(sms SMSTXModel, status int)error  {
 	db := db.DBConf()
 	stmt,err := db.Prepare("update smstx set status=? where uid=?")
 	checkSMSErr(err)
 	if err != nil{
 		return err
 	}
-	_,err = stmt.Exec(SMSStatusChecked,sms.Uid)
+	_,err = stmt.Exec(status,sms.Uid)
 	checkSMSErr(err)
 	return err
 }
@@ -71,9 +79,9 @@ func MarkSmsVerifyCode(sms SMSTXModel)error  {
 func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  {
 	var sms SMSTXModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, mobile, time, smscode, status FROM smstx WHERE mobile=?,smscode", phone,verifycode).
+	err := db.QueryRow("SELECT uid, mobile, time, smscode, status,type FROM smstx WHERE mobile=? and smscode=?", phone,verifycode).
 			Scan(&sms.Uid,
-			&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status)
+			&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status,&sms.SMStype)
 
 	checkSMSErr(err)
 	if err != nil {
@@ -84,15 +92,14 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 	}
 	
 	if time.Now().Unix() - sms.Time  > 1800{
-		stmt,err := db.Prepare("update smstx set status=? where uid=?")
-		checkSMSErr(err)
-		_,err = stmt.Exec(SMSStatusOverTime,sms.Uid)
-		checkSMSErr(err)
+		MarkSmsVerifyCode(sms,SMSStatusOverTime)
 		return sms,errors.New("verify time out")
 	}
 	return sms,nil
 
 }
+
+
 
 
 //func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
