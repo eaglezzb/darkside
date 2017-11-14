@@ -24,11 +24,10 @@ func RegisterHandler(c *gin.Context )  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+err.Error())
 		return
 	}
-
-	if !common.ValideUserName(user.UserName) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"username invalid")
-		return
-	}
+	//if !common.ValideUserName(user.UserName) {
+	//	aRespon.SetErrorInfo(http.StatusBadRequest,"username invalid")
+	//	return
+	//}
 	if !common.ValidePassword(user.Password) {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"password invalid ")
 		return
@@ -37,6 +36,9 @@ func RegisterHandler(c *gin.Context )  {
 		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
 		return
 	}
+
+
+
 	tm := time.Now()
 	user.CreateTime = tm.Unix()
 	user.UpdateTime = tm.Unix()
