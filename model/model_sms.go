@@ -14,8 +14,8 @@ const (
 	SMSStatusOverTime           	= 3 //校验时超过有效时间
 
 
-	SMSTypeRegister    		= "1" //注册
-	SMSTypeChangePassword		= "2" //修改密码
+	SMSTypeRegister    		= 1 //注册
+	SMSTypeChangePassword		= 2 //修改密码
 
 
 )
@@ -24,7 +24,7 @@ const (
 
 type SMSTXModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
-	SMStype 	string 		`json:"type,omitempty" form:"type,omitempty"`   //1 用户注册类型
+	SMStype 	int 		`json:"type,omitempty" form:"type,omitempty"`   //1 用户注册类型
 	Messag		string 		`json:"msg,omitempty" form:"message,omitempty"`
 	Result		int  		`json:"result,omitempty" form:"result,omitempty"`
 	Time		int64  		`json:"time,omitempty" form:"time,omitempty"`
@@ -42,7 +42,7 @@ type SMSTXModel struct {
 type TelephoneModel struct {
 	Code		string 			`json:"code,omitempty" form:"ncode,omitempty"`
 	Mobile		string 			`json:"mobile,omitempty" form:"mobile,omitempty"`
-	Type		string 			`json:"type,omitempty" form:"type,omitempty"` //1 用户注册类型
+	Type		int 			`json:"type,omitempty" form:"type,omitempty"` //1 用户注册类型
 }
 
 func (sms *SMSTXModel)InsertSMSInfo()error {
@@ -64,7 +64,7 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 	return err
 }
 
-func MarkSmsVerifyCode(sms SMSTXModel, status int)error  {
+func (sms *SMSTXModel)MarkSmsVerifyCode(status int)error  {
 	db := db.DBConf()
 	stmt,err := db.Prepare("update smstx set status=? where uid=?")
 	checkSMSErr(err)
@@ -92,12 +92,25 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 	}
 	
 	if time.Now().Unix() - sms.Time  > 1800{
-		MarkSmsVerifyCode(sms,SMSStatusOverTime)
+		sms.MarkSmsVerifyCode(SMSStatusOverTime)
 		return sms,errors.New("verify time out")
 	}
 	return sms,nil
-
 }
+
+func (sms *SMSTXModel)CheckDidSMSSend()bool  {
+	db := db.DBConf()
+	err := db.QueryRow("SELECT uid, mobile, time, smscode, status,type FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60).
+		Scan(&sms.Uid,
+		&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status,&sms.SMStype)
+	checkSMSErr(err)
+	if err != nil{
+		return false
+	}
+	return true
+}
+
+
 
 
 
