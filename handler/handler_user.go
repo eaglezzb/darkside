@@ -21,7 +21,7 @@ func RegisterHandler(c *gin.Context )  {
 	err := c.BindJSON(&user)
 	fmt.Println(user,err)
 	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+err.Error())
+		aRespon.SetErrorInfo(d.ErrcodeRequestParamsInvalid,"Param invalid "+err.Error())
 		return
 	}
 	//if !common.ValideUserName(user.UserName) {
@@ -29,21 +29,21 @@ func RegisterHandler(c *gin.Context )  {
 	//	return
 	//}
 	if !common.ValidePassword(user.Password) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"password invalid ")
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"password invalid ")
 		return
 	}
 	if !common.ValidePhone(user.Phone) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"phone  invalid ")
 		return
 	}
 
 	sms ,err := m.CheckPhoneAndVerifyCode(user.Phone,user.VerifyCode)
 	if err != nil {
-		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
 	if sms.SMStype != m.SMSTypeRegister {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"Incorrect type of verification code")
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"Incorrect type of verification code")
 		return
 	}
 
@@ -52,12 +52,11 @@ func RegisterHandler(c *gin.Context )  {
 	user.UpdateTime = tm.Unix()
 	err = user.InsertUser()
 	if err != nil {
-		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
 	user.VerifyCode = ""
 	user.Password = ""
-
 	aRespon.AddResponseInfo("code",http.StatusOK)
 	aRespon.AddResponseInfo("user",user)
 	sms.MarkSmsVerifyCode(m.SMSStatusChecked)
@@ -76,12 +75,12 @@ func LoginHandler(c *gin.Context) {
 	err := c.BindJSON(&user)
 	fmt.Println(err,user)
 	if err != nil {
-		aRespon.SetErrorInfo(http.StatusBadRequest, "Params invalid " + err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, "Params invalid " + err.Error())
 		return
 	}
 	dbUser, err := m.CheckUserNameAndPass(user.UserName, user.Password)
 	if err != nil {
-		aRespon.SetErrorInfo(http.StatusBadRequest, err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, err.Error())
 		return
 	}
 	aRespon.AddResponseInfo("user", dbUser)
@@ -97,7 +96,7 @@ func GetUserInfoHandler(c *gin.Context)  {
 	uid ,_ := strconv.ParseInt(c.Param("uid"),10,64)
 	user,err := m.FindUserFromDB(uid)
 	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
 	user.Password = ""
