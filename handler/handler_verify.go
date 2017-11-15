@@ -25,20 +25,23 @@ func SendSMSandler(c *gin.Context)  {
 	tel := model.TelephoneModel{}
 	err := c.BindJSON(&tel)
 	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid "+ err.Error())
+		aRespon.SetErrorInfo(d.ErrcodeRequestParamsInvalid,"Param invalid "+ err.Error())
 		return
 	}
 	if !common.ValideSMSType(tel.Type) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"Param invalid - verify type not right")
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"Param invalid - verify type not right")
 		return
 	}
 	if !common.ValidePhone(tel.Mobile) {
-		aRespon.SetErrorInfo(http.StatusBadRequest,"phone  invalid ")
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"phone  invalid ")
 		return
 	}
+
+
+
 	err = sendRegisterSMSCode(tel)
 	if err != nil{
-		aRespon.SetErrorInfo(http.StatusBadRequest,err.Error())
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
 	aRespon.SetSuccessInfo(http.StatusOK,"验证码发送成功")
@@ -56,6 +59,10 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 		return errors.New("wait 60s")
 	}
 
+	if sms.CheckMaxSendSMSCount(){
+		return errors.New("tmore than 10 sms has been sended today,")
+
+	}
 	//TODO 后续根据不同的type 发送不同的短信模板
 	message := fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本短信.(http://www.flywithme.top)",sms.Smscode)
 
