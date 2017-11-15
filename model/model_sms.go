@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/kataras/iris/core/errors"
 	"time"
+	"database/sql"
 )
 const (
 	SMSStatusFaild           	= -1 //短信发送失败
@@ -16,6 +17,14 @@ const (
 
 	SMSTypeRegister    		= 1 //注册
 	SMSTypeChangePassword		= 2 //修改密码
+
+
+
+	//CallBackCode
+
+
+
+
 
 
 )
@@ -110,6 +119,26 @@ func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 	return true
 }
 
+//服务方限制 每日10条
+func (sms *SMSTXModel)CheckMaxSendSMSCount()bool  {
+	db := db.DBConf()
+	rows, err := db.Query("SELECT COUNT(*) as count FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60*60*24)
+	checkSMSErr(err)
+	if checkCount(rows) > 9 {
+		return true
+	}
+	return false
+}
+
+
+func checkCount(rows *sql.Rows) (count int) {
+	for rows.Next() {
+		err:= rows.Scan(&count)
+		checkErr(err)
+	}
+	rows.Close()
+	return count
+}
 
 
 
