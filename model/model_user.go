@@ -19,7 +19,6 @@ type UserInfoModel struct {
 	UpdateTime	int64  		`json:"updatetime,omitempty" form:"updatetime,omitempty"`
 	Sex 		int 		`json:"sex,omitempty" form:"sex,omitempty"`     //0默认未设置 1男，2女
 	UserId 		string 		`json:"userid,omitempty" form:"userid,omitempty"`
-	DepartName	string		`json:"departname,omitempty" form:"departname,omitempty"`
 	Phone 		string		`json:"phone,omitempty" form:"phone,omitempty"`
 	PhonePrefix 	string		`json:"phoneprefix,omitempty" form:"phoneprefix,omitempty"`
 	Mail 		string		`json:"mail,omitempty" form:"mail,omitempty"`
@@ -55,9 +54,9 @@ func (user *UserInfoModel)InsertUser()(error){
 	}
 
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
+	stmt, err := db.Prepare("INSERT userinfo SET username=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State)
+	_, err = stmt.Exec(user.UserName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State)
 	checkErr(err)
 	return err
 }
@@ -68,9 +67,9 @@ func (user *UserInfoModel)UpdateIntoDB()(error)  {
 		return errors.New("update faild，Pri key Uid not found")
 	}
 	db := db.DBConf()
-	stmt, err := db.Prepare("UPDATE userinfo set username=?,departname=?,createtime=?,password=?,sex=? where uid=?")
+	stmt, err := db.Prepare("UPDATE userinfo set username=?,createtime=?,password=?,sex=? where uid=?")
 	checkErr(err)
-	_, err = stmt.Exec(user.UserName, user.DepartName,user.CreateTime,user.Password,user.Sex, user.Uid)
+	_, err = stmt.Exec(user.UserName,user.CreateTime,user.Password,user.Sex, user.Uid)
 	checkErr(err)
 	return err
 }
@@ -120,9 +119,9 @@ func CheckUserIdValid(userId string)(bool)  {
 func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE uid=?", uid).
+	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE uid=?", uid).
 		Scan(&user.Uid,
-		 &user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		 &user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	checkErr(err)
 	return user,err
@@ -131,9 +130,9 @@ func FindUserFromDB(uid int64)(UserInfoModel,error)  {
 func FindUserFromDBByName(name string)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
 		Scan(&user.Uid,
-		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	user.Password = ""
 	user.OldPassword = ""
@@ -144,9 +143,9 @@ func FindUserFromDBByName(name string)(UserInfoModel,error)  {
 func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
 	var user UserInfoModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
 		Scan(&user.Uid,
-		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 
 	if user.Password != pass {

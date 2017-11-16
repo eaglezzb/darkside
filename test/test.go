@@ -27,7 +27,7 @@ func Test()  {
 	//	fmt.Println(err)
 	//}
 	//
-	insertMail()
+	sendMail()
 
 }
 
@@ -83,7 +83,6 @@ func userTest() {
 	user.Sex = 1
 	user.CreateTime = time.Now().Unix()
 	user.Password = "12345sdsd6"
-	user.DepartName = "技asdasd"
 
 	fmt.Println(user)
 	user.InsertUser()

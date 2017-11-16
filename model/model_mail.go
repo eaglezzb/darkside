@@ -24,8 +24,6 @@ type MailModel struct {
 }
 
 
-
-
 func (email *EmailInfoModel)InsertSMSInfo()error {
 	fmt.Println(email)
 	db := db.DBConf()
