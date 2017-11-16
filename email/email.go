@@ -6,12 +6,20 @@ import (
 	"strings"
 )
 
+//const (
+//	HOST        = "smtpdm.aliyun.com"//"smtp.163.com"
+//	SERVER_ADDR = "smtpdm.aliyun.com:25"//"smtp.163.com:25"
+//	USER        = "registerverify@flywithme.top"  //"webFlywithme@163.com" //发送邮件的邮箱
+//	PASSWORD    = "Web11121014A" //"Web1234567"         //发送邮件邮箱客户端授权密码
+//)
+
 const (
 	HOST        = "smtp.163.com"
 	SERVER_ADDR = "smtp.163.com:25"
-	USER        = "webflywithme@163.com" //发送邮件的邮箱
-	PASSWORD    = "Web1234567"         //发送邮件邮箱的密码
+	USER        = "webFlywithme@163.com" //发送邮件的邮箱
+	PASSWORD    = "Web1234567"         //发送邮件邮箱客户端授权密码
 )
+
 
 type Email struct {
 	to      string "to"
