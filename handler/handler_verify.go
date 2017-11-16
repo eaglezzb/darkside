@@ -36,9 +36,6 @@ func SendSMSandler(c *gin.Context)  {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,"phone  invalid ")
 		return
 	}
-
-
-
 	err = sendRegisterSMSCode(tel)
 	if err != nil{
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())

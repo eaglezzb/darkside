@@ -58,14 +58,21 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 	fmt.Println(sms)
 	db := db.DBConf()
 	stmt, err := db.Prepare("INSERT smstx SET type=?,message=?,result=?,time=?,ext=?,mobile=?,ncode=?,errmsg=?,sid=?,fee=?,smscode=?,status=?")
-	checkSMSErr(err)
+	if err != nil{
+		log.Warn(err.Error())
+		return err
+	}
 	_, err = stmt.Exec(sms.SMStype,sms.Messag,sms.Result,sms.Time,sms.Ext,sms.Mobile,sms.Ncode,sms.Errmsg,sms.Sid,sms.Fee,sms.Smscode,sms.Status)
 	if err != nil {
 		log.Warn(err.Error())
+		return err
 	}
 	//手机数据短信send次数自增
 	stmt, err = db.Prepare("INSERT telephone SET mobile=?,ncode=? on duplicate key update scount=scount+1,ncode=?")
-	checkSMSErr(err)
+	if err != nil{
+		log.Warn(err.Error())
+		return err
+	}
 	_, err1 := stmt.Exec(sms.Mobile,sms.Ncode,sms.Ncode)
 	if err1 != nil {
 		log.Warn(err1.Error())
@@ -76,12 +83,14 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 func (sms *SMSTXModel)MarkSmsVerifyCode(status int)error  {
 	db := db.DBConf()
 	stmt,err := db.Prepare("update smstx set status=? where uid=?")
-	checkSMSErr(err)
 	if err != nil{
+		log.Warn(err.Error())
 		return err
 	}
 	_,err = stmt.Exec(status,sms.Uid)
-	checkSMSErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	return err
 }
 
@@ -92,9 +101,9 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 			Scan(&sms.Uid,
 			&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status,&sms.SMStype)
 
-	checkSMSErr(err)
 	if err != nil {
-		return sms,err
+		log.Warn(err.Error())
+		return sms,errors.New("invalid code")
 	}
 	if sms.Status != SMSStatusUnChecked {
 		return sms, errors.New("invalid code")
@@ -112,8 +121,8 @@ func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 	err := db.QueryRow("SELECT uid, mobile, time, smscode, status,type FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60).
 		Scan(&sms.Uid,
 		&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status,&sms.SMStype)
-	checkSMSErr(err)
-	if err != nil{
+	if err != nil {
+		log.Warn(err.Error())
 		return false
 	}
 	return true
@@ -123,7 +132,9 @@ func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 func (sms *SMSTXModel)CheckMaxSendSMSCount()bool  {
 	db := db.DBConf()
 	rows, err := db.Query("SELECT COUNT(*) as count FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60*60*24)
-	checkSMSErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	if checkCount(rows) > 9 {
 		return true
 	}
@@ -134,7 +145,9 @@ func (sms *SMSTXModel)CheckMaxSendSMSCount()bool  {
 func checkCount(rows *sql.Rows) (count int) {
 	for rows.Next() {
 		err:= rows.Scan(&count)
-		checkErr(err)
+		if err != nil {
+			log.Warn(err.Error())
+		}
 	}
 	rows.Close()
 	return count
@@ -144,10 +157,10 @@ func checkCount(rows *sql.Rows) (count int) {
 
 
 
-//func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
-//	var user UserInfoModel
+//func CheckUserNameAndPass(name string,pass string)(UserModel,error)  {
+//	var user UserModel
 //	db := db.DBConf()
-//	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+//	err := db.QueryRow("SELECT uid, username, departname, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM user WHERE username=?", name).
 //		Scan(&user.Uid,
 //		&user.UserName, &user.DepartName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 //		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
@@ -163,8 +176,8 @@ func checkCount(rows *sql.Rows) (count int) {
 //}
 
 
-func checkSMSErr(err error) {
-	if err != nil {
-		log.Warn(err.Error())
-	}
-}
+//func checkSMSErr(err error) {
+//	if err != nil {
+//		log.Warn(err.Error())
+//	}
+//}

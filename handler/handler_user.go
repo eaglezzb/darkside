@@ -78,7 +78,7 @@ func LoginHandler(c *gin.Context) {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, "Params invalid " + err.Error())
 		return
 	}
-	dbUser, err := m.CheckUserNameAndPass(user.UserName, user.Password)
+	dbUser, err := m.UserLogin(user.UserName, user.Password)
 	if err != nil {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, err.Error())
 		return

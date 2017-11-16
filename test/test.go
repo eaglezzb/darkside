@@ -100,7 +100,7 @@ func dbsqlTest()  {
 	var db = db.DBConf()
 
 	//插入数据
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,createtime=?")
+	stmt, err := db.Prepare("INSERT user SET username=?,departname=?,createtime=?")
 	checkErr(err)
 
 	res, err := stmt.Exec("码农", "技术部", time.Now().Unix())
@@ -111,7 +111,7 @@ func dbsqlTest()  {
 
 	fmt.Println(id)
 	//更新数据
-	stmt, err = db.Prepare("update userinfo set username=? where uid=?")
+	stmt, err = db.Prepare("update user set username=? where uid=?")
 	checkErr(err)
 
 	res, err = stmt.Exec("码农二代", id)
@@ -123,7 +123,7 @@ func dbsqlTest()  {
 	fmt.Println(affect)
 
 	//查询数据
-	rows, err := db.Query("SELECT * FROM userinfo")
+	rows, err := db.Query("SELECT * FROM user")
 	checkErr(err)
 
 	for rows.Next() {

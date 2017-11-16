@@ -28,7 +28,10 @@ func (email *EmailInfoModel)InsertSMSInfo()error {
 	fmt.Println(email)
 	db := db.DBConf()
 	stmt, err := db.Prepare("INSERT mailinfo SET mail=?,verifycode=?,message=?,type=?,status=?,createtime=?")
-	checkSMSErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+		return err
+	}
 	_, err = stmt.Exec(email.Mail,email.Verifycode,email.Message,email.Type,email.Status,email.CreateTime)
 	if err != nil {
 		log.Warn(err.Error())

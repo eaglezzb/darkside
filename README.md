@@ -2,9 +2,9 @@
 
 
 用户表
-**userModel**
+**UserModel**
     
-    CREATE TABLE `userinfo` (
+    CREATE TABLE `user` (
       `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `username` varchar(16) DEFAULT '',
       `departname` varchar(20) DEFAULT '',

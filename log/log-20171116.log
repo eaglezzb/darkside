@@ -21,3 +21,44 @@
 2017-11-16 15:36:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/mail
 2017-11-16 15:38:18 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/mail
 2017-11-16 17:19:06 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-16 22:31:56 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/sms
+2017-11-16 22:31:56 	 [ WARN] 	 <model_sms.go:168>  	 sql: no rows in result set
+2017-11-16 22:32:04 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:32:04 	 [ WARN] 	 <model_sms.go:168>  	 sql: no rows in result set
+2017-11-16 22:33:39 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:33:39 	 [ WARN] 	 <model_sms.go:169>  	 sql: no rows in result set
+2017-11-16 22:34:02 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:34:02 	 [ WARN] 	 <model_sms.go:96>  	 sql: no rows in result set
+2017-11-16 22:35:17 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:35:17 	 [ WARN] 	 <model_sms.go:168>  	 sql: no rows in result set
+2017-11-16 22:35:38 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:35:38 	 [ WARN] 	 <model_sms.go:168>  	 sql: no rows in result set
+2017-11-16 22:35:39 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:35:39 	 [ WARN] 	 <model_sms.go:168>  	 sql: no rows in result set
+2017-11-16 22:36:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:36:49 	 [ WARN] 	 <model_sms.go:165>  	 sql: no rows in result set
+2017-11-16 22:36:51 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:36:51 	 [ WARN] 	 <model_sms.go:165>  	 sql: no rows in result set
+2017-11-16 22:41:53 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:41:53 	 [ WARN] 	 <model_sms.go:105>  	 sql: no rows in result set
+2017-11-16 22:41:55 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:41:55 	 [ WARN] 	 <model_sms.go:105>  	 sql: no rows in result set
+2017-11-16 22:41:55 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:41:55 	 [ WARN] 	 <model_sms.go:105>  	 sql: no rows in result set
+2017-11-16 22:42:11 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/sms
+2017-11-16 22:42:11 	 [ WARN] 	 <model_sms.go:125>  	 sql: no rows in result set
+2017-11-16 22:42:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:42:25 	 [ WARN] 	 <model_sms.go:105>  	 sql: no rows in result set
+2017-11-16 22:43:04 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/registeruser
+2017-11-16 22:46:08 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/1000018
+2017-11-16 22:46:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/1000018
+2017-11-16 22:46:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/1000018
+2017-11-16 22:46:10 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/1000018
+2017-11-16 23:09:42 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:18:49 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:19:25 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:19:55 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:20:01 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:20:39 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:20:39 	 [ WARN] 	 <model_user.go:165>  	 sql: no rows in result set
+2017-11-16 23:20:50 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
