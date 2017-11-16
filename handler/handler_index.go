@@ -3,6 +3,7 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/flywithbug/darkside/test"
+	"net/http"
 )
 
 
@@ -16,4 +17,8 @@ func Index(ctx *gin.Context)  {
 		"errno":"0",
 		"msg":"Index.html",
 	})
+}
+
+func Redirecthandler(c *gin.Context)  {
+	c.Redirect(http.StatusMovedPermanently,"https://www.google.com")
 }
