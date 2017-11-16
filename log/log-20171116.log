@@ -62,3 +62,77 @@
 2017-11-16 23:20:39 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
 2017-11-16 23:20:39 	 [ WARN] 	 <model_user.go:165>  	 sql: no rows in result set
 2017-11-16 23:20:50 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:28:06 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-16 23:28:09 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-16 23:28:34 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/index.html
+2017-11-16 23:28:37 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/
+2017-11-16 23:32:32 	 [ INFO] 	 <middleware.go:20>  	 Form:map[],,Path:127.0.0.1/redirect
+2017-11-16 23:34:08 	 [ INFO] 	 <middleware.go:15>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:34:08 	 [ INFO] 	 <middleware.go:15>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:34:08 	 [ INFO] 	 <middleware.go:15>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:34:09 	 [ INFO] 	 <middleware.go:15>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:34:09 	 [ INFO] 	 <middleware.go:15>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:34:40 	 [ INFO] 	 <middleware.go:14>  	 Form:&{%!s(*io.LimitedReader=&{0xc420202c60 0}) <nil> %!s(*bufio.Reader=<nil>) %!s(bool=false) %!s(bool=true) {%!s(int32=0) %!s(uint32=0)} %!s(bool=true) %!s(bool=false) %!s(bool=false) %!s(func()=0x128ad40)},,Path:127.0.0.1/user/login
+2017-11-16 23:34:41 	 [ INFO] 	 <middleware.go:14>  	 Form:&{%!s(*io.LimitedReader=&{0xc420202c60 0}) <nil> %!s(*bufio.Reader=<nil>) %!s(bool=false) %!s(bool=true) {%!s(int32=0) %!s(uint32=0)} %!s(bool=true) %!s(bool=false) %!s(bool=false) %!s(func()=0x128ad40)},,Path:127.0.0.1/user/login
+2017-11-16 23:37:17 	 [ INFO] 	 <middleware.go:16>  	 Form:&{{%!s(*http.response=&{0xc42019f540 0xc42012c800 0xc4201aef40 0x10ed0b0 false false false false 0xc4201af000 {0xc4202180e0 map[] false false} map[Vary:[Origin] Access-Control-Allow-Credentials:[true] Access-Control-Allow-Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop]] true 0 -1 0 false false [] 0 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] [0 0 0 0 0 0 0 0 0 0] [0 0 0] 0xc42018c460 0}) %!s(int=-1) %!s(int=200)} %!s(*http.Request=&{POST 0xc420129800 HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[49] Cache-Control:[no-cache] Postman-Token:[d395b6c6-326e-568c-f1f8-cfc529b33da7] Origin:[chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop] Content-Type:[application/json] Accept-Encoding:[gzip, deflate, br] Accept-Language:[zh-CN,zh;q=0.9,en;q=0.8] Connection:[keep-alive] User-Agent:[Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36]] 0xc4201aef40 <nil> 49 [] false localhost:8081 map[] map[] <nil> map[] [::1]:59768 /user/login <nil> <nil> <nil> 0xc4201aef80}) %!s(*gin.responseWriter=&{0xc4202180e0 -1 200}) [] [%!s(gin.HandlerFunc=0x14d5ee0) %!s(gin.HandlerFunc=0x14d6c20) %!s(gin.HandlerFunc=0x156be30) %!s(gin.HandlerFunc=0x156c470) %!s(gin.HandlerFunc=0x1567930)] %!s(int8=4) %!s(*gin.Engine=&{{[0x14d5ee0 0x14d6c20 0x156be30 0x156c470] / 0xc42021a000 true} {{{ }}} while(1); <nil> map[] [0x14d5ee0 0x14d6c20 0x156be30 0x156c470] [0x14d5ee0 0x14d6c20 0x156be30 0x156c470] [] [] {{} 0xc420222800 8 0x14d5d50} [{GET 0xc420112ea0} {HEAD 0xc420112f00} {POST 0xc4201132c0}] true false false true false false true 33554432}) map[]  []},,Path:127.0.0.1/user/login
+2017-11-16 23:38:51 	 [ INFO] 	 <middleware.go:16>  	 Form:map[],,Path:127.0.0.1/user/login
+2017-11-16 23:39:27 	 [ INFO] 	 <middleware.go:16>  	 Form:[],,Path:127.0.0.1/user/login
+2017-11-16 23:48:49 	 [ INFO] 	 <middleware.go:17>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,Path:127.0.0.1/user/login
+2017-11-16 23:48:52 	 [ INFO] 	 <middleware.go:17>  	 Form:,,Path:127.0.0.1/user/login
+2017-11-16 23:49:20 	 [ INFO] 	 <middleware.go:17>  	 Form:,,Path:127.0.0.1/user/registeruser
+2017-11-16 23:49:43 	 [ INFO] 	 <middleware.go:17>  	 Form:,,Path:127.0.0.1/user/sms
+2017-11-16 23:49:43 	 [ WARN] 	 <model_sms.go:125>  	 sql: no rows in result set
+2017-11-16 23:50:26 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"code":"86",
+	"mobile":"1760219862",
+	"type":1
+},,Path:127.0.0.1/user/sms
+2017-11-16 23:50:28 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"code":"86",
+	"mobile":"1760219862",
+	"type":1
+},,Path:127.0.0.1/user/sms
+2017-11-16 23:50:31 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack006",
+	"password":"admin123",
+	"departname":"技术部",
+	"phone":"1376430393",
+	"phoneprefix":"+86",
+	"sex":"1"
+},,Path:127.0.0.1/user/registeruser
+2017-11-16 23:50:53 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack006",
+	"password":"admin123",
+	"departname":"技术部",
+	"phone":"1376430393",
+	"phoneprefix":"+86",
+	"sex":"1"
+},,Path:127.0.0.1/user/registeruser%!(EXTRA *errors.errorString=EOF)
+2017-11-16 23:51:12 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"code":"86",
+	"mobile":"1760219862",
+	"type":1
+},,Path:127.0.0.1/user/sms%!(EXTRA *errors.errorString=EOF)
+2017-11-16 23:51:15 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,Path:127.0.0.1/user/login%!(EXTRA *errors.errorString=EOF)
+2017-11-16 23:51:26 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,Path:127.0.0.1/user/login%!(EXTRA string=EOF)
+2017-11-16 23:51:50 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,Path:127.0.0.1EOF
+2017-11-16 23:52:06 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,Path:127.0.0.1/user/login%!(EXTRA string=EOF)
+2017-11-16 23:52:34 	 [ INFO] 	 <middleware.go:21>  	 Form:{
+	"username":"Jack008",
+	"password":"admin123"
+},,ip:127.0.0.1 path:/user/login err:EOF

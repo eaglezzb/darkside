@@ -70,7 +70,6 @@ func LoginHandler(c *gin.Context) {
 	defer func() {
 		c.JSON(http.StatusOK, aRespon)
 	}()
-
 	user := m.NewUser()
 	err := c.BindJSON(&user)
 	fmt.Println(err,user)

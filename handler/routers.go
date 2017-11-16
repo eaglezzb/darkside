@@ -8,7 +8,8 @@ import (
 
 
 var routers = map[string]gin.HandlerFunc{
-	"GET      /":Index,
+	//"GET      /":Index,
+	"GET        /redirect":Redirecthandler,
 	"GET      /upload":UploadIndexHandler,
 	"POST     /uploadfile":UploadFileHandler,
 
