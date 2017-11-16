@@ -7,11 +7,11 @@ import (
 	"fmt"
 )
 
-type BaseUserInfoModel struct {
+type BaseUserModel struct {
 
 }
 
-type UserInfoModel struct {
+type UserModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
 	UserName	string 		`json:"username,omitempty" form:"username,omitempty"`
 	Password	string  	`json:"password,omitempty" form:"password,omitempty"`
@@ -33,16 +33,16 @@ type UserInfoModel struct {
 
 
 
-func NewUser() UserInfoModel {
-	return UserInfoModel{}
+func NewUser() UserModel {
+	return UserModel{}
 }
 
-func (user *UserInfoModel)ToString()(desc string)  {
+func (user *UserModel)ToString()(desc string)  {
 	desc = "name:"+user.UserName
 	return desc
 }
 
-func (user *UserInfoModel)InsertUser()(error){
+func (user *UserModel)InsertUser()(error){
 	if len(user.UserName) >0 && CheckUserNameValid(user.UserName) == false{
 		err := errors.New("username already exists")
 		return err
@@ -54,30 +54,40 @@ func (user *UserInfoModel)InsertUser()(error){
 	}
 
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT userinfo SET username=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
-	checkErr(err)
+	stmt, err := db.Prepare("INSERT user SET username=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
+	if err != nil {
+		log.Warn(err.Error())
+		return err
+	}
 	_, err = stmt.Exec(user.UserName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State)
-	checkErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	return err
 }
 
-func (user *UserInfoModel)UpdateIntoDB()(error)  {
+func (user *UserModel)UpdateIntoDB()(error)  {
 	if user.Uid == 0 {
 		log.Error("update faild，Pri key Uid not found")
 		return errors.New("update faild，Pri key Uid not found")
 	}
 	db := db.DBConf()
-	stmt, err := db.Prepare("UPDATE userinfo set username=?,createtime=?,password=?,sex=? where uid=?")
-	checkErr(err)
+	stmt, err := db.Prepare("UPDATE user set username=?,createtime=?,password=?,sex=? where uid=?")
+	if err != nil {
+		log.Warn(err.Error())
+		return err
+	}
 	_, err = stmt.Exec(user.UserName,user.CreateTime,user.Password,user.Sex, user.Uid)
-	checkErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	return err
 }
 
 
 func CheckUserNameValid(name string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE username=?", name).Scan(&name)
+	err := db.QueryRow("SELECT  username FROM user WHERE username=?", name).Scan(&name)
 	if err != nil {
 		return true
 	}
@@ -87,7 +97,7 @@ func CheckUserNameValid(name string)(bool)  {
 
 func CheckPhoneValid(phone string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  phone FROM userinfo WHERE phone=?", phone).Scan(&phone)
+	err := db.QueryRow("SELECT  phone FROM user WHERE phone=?", phone).Scan(&phone)
 	if err != nil {
 		return true
 	}
@@ -97,7 +107,7 @@ func CheckPhoneValid(phone string)(bool)  {
 
 func CheckEmailValid(mail string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE mail=?", mail).Scan(&mail)
+	err := db.QueryRow("SELECT  username FROM user WHERE mail=?", mail).Scan(&mail)
 	if err != nil {
 		return true
 	}
@@ -108,7 +118,7 @@ func CheckEmailValid(mail string)(bool)  {
 
 func CheckUserIdValid(userId string)(bool)  {
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username FROM userinfo WHERE userid=?", userId).Scan(&userId)
+	err := db.QueryRow("SELECT  username FROM user WHERE userid=?", userId).Scan(&userId)
 	if err != nil {
 		return true
 	}
@@ -116,52 +126,54 @@ func CheckUserIdValid(userId string)(bool)  {
 	return false
 }
 
-func FindUserFromDB(uid int64)(UserInfoModel,error)  {
-	var user UserInfoModel
+func FindUserFromDB(uid int64)(UserModel,error)  {
+	var user UserModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE uid=?", uid).
+	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM user WHERE uid=?", uid).
 		Scan(&user.Uid,
 		 &user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
-	checkErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	return user,err
 }
 
-func FindUserFromDBByName(name string)(UserInfoModel,error)  {
-	var user UserInfoModel
+func FindUserFromDBByName(name string)(UserModel,error)  {
+	var user UserModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM user WHERE username=?", name).
 		Scan(&user.Uid,
 		&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	user.Password = ""
 	user.OldPassword = ""
-	checkErr(err)
+	if err != nil {
+		log.Warn(err.Error())
+	}
 	return user,err
 }
 
-func CheckUserNameAndPass(name string,pass string)(UserInfoModel,error)  {
-	var user UserInfoModel
+func UserLogin(name string,pass string)(UserModel,error)  {
+	var user UserModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM userinfo WHERE username=?", name).
+	err := db.QueryRow("SELECT uid, username, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail FROM user WHERE username=? and password=?", name,pass).
 		Scan(&user.Uid,
-		&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
-		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
-
-	if user.Password != pass {
-		err = errors.New("password not right")
-		user = NewUser()
+		&user.UserName, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail)
+	if err != nil{
+		log.Warn(err.Error())
+		return user,errors.New("invalid username or password")
 	}
 	user.Password = ""
 	user.OldPassword = ""
-	checkErr(err)
+
 	return user,err
 }
 
-
 func DeleteUserFromDB(uid int64)(error)  {
 	db := db.DBConf()
-	stmt, err := db.Prepare("delete from userinfo where uid=?")
+	stmt, err := db.Prepare("delete from user where uid=?")
 	if err != nil{
 		return err
 	}
@@ -170,8 +182,8 @@ func DeleteUserFromDB(uid int64)(error)  {
 	return err
 }
 
-func checkErr(err error) {
-	if err != nil {
-		log.Warn(err.Error())
-	}
-}
+//func checkErr(err error) {
+//	if err != nil {
+//		log.Warn(err.Error())
+//	}
+//}
