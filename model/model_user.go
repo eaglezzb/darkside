@@ -14,6 +14,7 @@ type BaseUserModel struct {
 
 }
 
+
 type UserModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
 	UserName	string 		`json:"username,omitempty" form:"username,omitempty"`
@@ -183,20 +184,34 @@ func FindUserFromDBByName(name string)(UserModel,error)  {
 	return user,err
 }
 
-func UserLogin(name string,pass string)(UserModel,error)  {
+func CheckLogin(phone string,pass string)(UserModel,error)  {
 	var user UserModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT uid, username, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail FROM user WHERE username=? and password=?", name,pass).
+	err := db.QueryRow("SELECT uid, username, sex, userid, phone, phoneprefix, state, authtoken, mail FROM user WHERE phone=? and password=?", phone,pass).
 		Scan(&user.Uid,
-		&user.UserName, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
-		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail)
+		&user.UserName, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,&user.State,&user.Authtoken,&user.Mail)
 	if err != nil{
 		log.Warn(err.Error())
-		err = errors.New("user not found")
+		err = errors.New("phone not found")
 	}
 	user.Password = ""
 	user.OldPassword = ""
+
 	return user,err
+}
+
+func (user *UserModel)updateUserToken()error  {
+	db := db.DBConf()
+	stmt, err := db.Prepare("UPDATE user SET authtoken=? where uid=?")
+	if err != nil{
+		log.Warn(err.Error())
+		return errors.New("user invalid")
+	}
+	_,err = stmt.Exec(user.Authtoken,user.Uid)
+	if err != nil{
+		log.Warn(err.Error())
+	}
+	return err
 }
 
 func DeleteUserFromDB(uid int64)(error)  {
