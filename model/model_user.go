@@ -5,6 +5,7 @@ import (
 	log "github.com/flywithbug/log4go"
 	"errors"
 	"fmt"
+	"github.com/flywithbug/utils"
 )
 
 type BaseUserModel struct {
@@ -43,10 +44,10 @@ func (user *UserModel)ToString()(desc string)  {
 }
 
 func (user *UserModel)InsertUser()(error){
-	if len(user.UserName) >0 && CheckUserNameValid(user.UserName) == false{
-		err := errors.New("username already exists")
-		return err
-	}
+	//if len(user.UserName) >0 && CheckUserNameValid(user.UserName) == false{
+	//	err := errors.New("username already exists")
+	//	return err
+	//}
 
 	if CheckPhoneValid(user.Phone) == false{
 		err := errors.New("phone number already exists")
@@ -54,12 +55,13 @@ func (user *UserModel)InsertUser()(error){
 	}
 
 	db := db.DBConf()
-	stmt, err := db.Prepare("INSERT user SET username=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?")
+	stmt, err := db.Prepare("INSERT user SET username=?,createtime=?,updatetime=?,password=?,sex=?,mail=?,phone=?,phoneprefix=?,state=?,userid=?")
 	if err != nil {
 		log.Warn(err.Error())
 		return err
 	}
-	_, err = stmt.Exec(user.UserName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State)
+	user.UserId = utils.Md5(user.Phone+user.UserName)
+	_, err = stmt.Exec(user.UserName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State,user.UserId)
 	if err != nil {
 		log.Warn(err.Error())
 	}
@@ -133,11 +135,30 @@ func FindUserFromDB(uid int64)(UserModel,error)  {
 		Scan(&user.Uid,
 		 &user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
+
+	if err != nil {
+		log.Warn(err.Error())
+		err = errors.New("user not found")
+	}
+	user.Password = ""
+	user.OldPassword = ""
+	return user,err
+}
+
+func FindUserFromDBByUserid(userid string)(UserModel,error)  {
+	var user UserModel
+	db := db.DBConf()
+	err := db.QueryRow("SELECT  username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM user WHERE userid=?", userid).
+		Scan(&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
 	if err != nil {
 		log.Warn(err.Error())
 	}
+	user.Password = ""
+	user.OldPassword = ""
 	return user,err
 }
+
 
 func FindUserFromDBByName(name string)(UserModel,error)  {
 	var user UserModel
@@ -146,11 +167,14 @@ func FindUserFromDBByName(name string)(UserModel,error)  {
 		Scan(&user.Uid,
 		&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
-	user.Password = ""
-	user.OldPassword = ""
+
 	if err != nil {
 		log.Warn(err.Error())
+		err = errors.New("user not found")
+
 	}
+	user.Password = ""
+	user.OldPassword = ""
 	return user,err
 }
 
@@ -163,11 +187,10 @@ func UserLogin(name string,pass string)(UserModel,error)  {
 		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail)
 	if err != nil{
 		log.Warn(err.Error())
-		return user,errors.New("invalid username or password")
+		err = errors.New("user not found")
 	}
 	user.Password = ""
 	user.OldPassword = ""
-
 	return user,err
 }
 
@@ -175,15 +198,10 @@ func DeleteUserFromDB(uid int64)(error)  {
 	db := db.DBConf()
 	stmt, err := db.Prepare("delete from user where uid=?")
 	if err != nil{
+		log.Warn(err.Error())
 		return err
 	}
 	fmt.Println(uid)
 	_,err = stmt.Exec(uid)
 	return err
 }
-
-//func checkErr(err error) {
-//	if err != nil {
-//		log.Warn(err.Error())
-//	}
-//}
