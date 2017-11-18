@@ -48,7 +48,7 @@ func SendSMSandler(c *gin.Context)  {
 func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 	sms := model.SMSTXModel{}
 	sms.Mobile = tel.Mobile
-	sms.Ncode = tel.Code
+	sms.Ncode = tel.NCode
 	sms.TelModel = tel
 	sms.SMStype = tel.Type
 	sms.Smscode = strings.ToUpper(u.RandSMSString(6))
@@ -80,7 +80,7 @@ func sendRegisterSMSCode(tel model.TelephoneModel)(error)  {
 		smsReq, err := qcloudsms.SMSService(client)
 		ext := qcloudsms.SmsExt{}
 		ext.Type = 0
-		ext.NationCode =tel.Code
+		ext.NationCode =tel.NCode
 		resp, err := smsReq.Send(tel.Mobile, sms.Messag,ext)
 		sms.Errmsg = resp.ErrMsg
 		sms.Sid = resp.Sid
