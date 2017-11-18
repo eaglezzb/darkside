@@ -68,7 +68,7 @@ func testPhoneDB()  {
 	telModel.Time = time.Now().Unix()
 	telModel.Mobile = "17602198928"
 	telModel.Smscode = "adb234"
-	telModel.TelModel.Code = "86"
+	telModel.TelModel.NCode = "86"
 	telModel.TelModel.Mobile = telModel.Mobile
 	telModel.Result = 2
 	telModel.Ncode = "86"
