@@ -6,6 +6,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/flywithbug/utils"
+	"time"
+	"strconv"
 )
 
 type BaseUserModel struct {
@@ -60,7 +62,10 @@ func (user *UserModel)InsertUser()(error){
 		log.Warn(err.Error())
 		return err
 	}
-	user.UserId = utils.Md5(user.Phone+user.UserName)
+	tm := time.Now()
+	user.CreateTime = tm.Unix()
+	user.UpdateTime = tm.Unix()
+	user.UserId = utils.Md5(user.Phone+ strconv.FormatInt(tm.Unix(), 10))
 	_, err = stmt.Exec(user.UserName,user.CreateTime,user.UpdateTime,user.Password,user.Sex,user.Mail,user.Phone,user.PhonePrefix,user.State,user.UserId)
 	if err != nil {
 		log.Warn(err.Error())
