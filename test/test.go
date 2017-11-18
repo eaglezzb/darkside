@@ -35,15 +35,15 @@ func Test()  {
 	//var n int64
 	//n = 122111111
 	//fmt.Println(utils.ConvertInt2String(n))
-	insertMail()
+	insertLocation()
 
 }
 
 func insertLocation()  {
 	location := model.LocationModel{}
 	location.Uid = 10000048
-	location.Longitude = 12222322
-	location.Latitude = 22999499
+	location.Longitude = -122.9992222
+	location.Latitude = 2112.76544923334
 	location.UpdateLocation()
 
 }

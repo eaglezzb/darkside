@@ -65,3 +65,17 @@
 2017-11-18 22:18:47 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/mail 
 2017-11-18 22:18:49 	 [ WARN] 	 <model_mail.go:33>  	 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from=?,verifycode=?,message=?,type=?,status=?,createtime=?' at line 1
 2017-11-18 22:26:08 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/mail 
+2017-11-18 22:45:25 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/41981e0948db420f7026491700272b2d 
+2017-11-18 22:45:25 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/41981e0948db420f7026491700272b2d 
+2017-11-18 22:45:25 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/41981e0948db420f7026491700272b2d 
+2017-11-18 22:45:26 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/41981e0948db420f7026491700272b2d 
+2017-11-18 23:30:26 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:30:40 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:31:11 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:31:31 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:31:56 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:33:39 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:33:39 	 [ WARN] 	 <model_location.go:29>  	 Error 1264: Out of range value for column 'latitude' at row 1
+2017-11-18 23:34:08 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:34:32 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-18 23:34:32 	 [ WARN] 	 <model_location.go:29>  	 Error 1264: Out of range value for column 'latitude' at row 1

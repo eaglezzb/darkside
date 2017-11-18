@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"github.com/flywithbug/log4go"
 )
 
 func RegisterHandler(c *gin.Context )  {
@@ -18,8 +19,8 @@ func RegisterHandler(c *gin.Context )  {
 	}()
 	user := m.NewUser()
 	err := c.BindJSON(&user)
-	fmt.Println(user,err)
 	if err != nil{
+		log4go.Error(err.Error())
 		aRespon.SetErrorInfo(d.ErrcodeRequestParamsInvalid,"Param invalid "+err.Error())
 		return
 	}
@@ -48,6 +49,7 @@ func RegisterHandler(c *gin.Context )  {
 
 	err = user.InsertUser()
 	if err != nil {
+		log4go.Error(err.Error())
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
