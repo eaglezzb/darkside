@@ -98,8 +98,22 @@ func GetUserInfoHandler(c *gin.Context)  {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
 		return
 	}
-	user.Password = ""
-	user.OldPassword = ""
+	aRespon.AddResponseInfo("user",user)
+}
+
+//user/:userid
+func GetUserInfoUserIdHandler(c *gin.Context)  {
+	aRespon := d.NewResponse()
+	defer func() {
+		c.JSON(http.StatusOK, aRespon)
+	}()
+	userid := c.Param("userid")
+	fmt.Println("userid",userid)
+	user,err := m.FindUserFromDBByUserid(userid)
+	if err != nil{
+		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
+		return
+	}
 	aRespon.AddResponseInfo("user",user)
 }
 
