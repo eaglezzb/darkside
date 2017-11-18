@@ -19,6 +19,7 @@ func RegisterHandler(c *gin.Context )  {
 	}()
 	user := m.NewUser()
 	err := c.BindJSON(&user)
+	fmt.Println(user,err)
 	if err != nil{
 		log4go.Error(err.Error())
 		aRespon.SetErrorInfo(d.ErrcodeRequestParamsInvalid,"Param invalid "+err.Error())
@@ -75,7 +76,7 @@ func LoginHandler(c *gin.Context) {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, "Params invalid " + err.Error())
 		return
 	}
-	dbUser, err := m.UserLogin(user.UserName, user.Password)
+	dbUser, err := m.CheckLogin(user.Phone, user.Password)
 	if err != nil {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, err.Error())
 		return
