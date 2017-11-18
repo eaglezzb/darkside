@@ -9,12 +9,10 @@ import (
 
 type LocationModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
-	Latitude 	int		`json:"latitude,omitempty" form:"latitude,omitempty"`
-	Longitude	int  		`json:"longitude,omitempty" form:"longitude,omitempty"`
+	Latitude 	float32		`json:"latitude,omitempty" form:"latitude,omitempty"`
+	Longitude	float32  		`json:"longitude,omitempty" form:"longitude,omitempty"`
 	Updatetime	int64  		`json:"time,omitempty" form:"time,omitempty"`
 }
-
-
 
 func (location *LocationModel)UpdateLocation()error {
 	fmt.Println()
@@ -31,9 +29,6 @@ func (location *LocationModel)UpdateLocation()error {
 		log.Warn(err.Error())
 		return err
 	}
-
-
-
 
 	stmt, err = db.Prepare("INSERT location_history_record SET uid =?,latitude=?,longitude=?, time=? ")
 	_, err = stmt.Exec(location.Uid,location.Latitude,location.Longitude,location.Updatetime)
