@@ -48,11 +48,7 @@ type SMSTXModel struct {
 	TelModel	TelephoneModel	`json:"tel,omitempty" form:"tel,omitempty"`
 }
 
-type TelephoneModel struct {
-	Code		string 			`json:"code,omitempty" form:"ncode,omitempty"`
-	Mobile		string 			`json:"mobile,omitempty" form:"mobile,omitempty"`
-	Type		int 			`json:"type,omitempty" form:"type,omitempty"` //1 用户注册类型
-}
+
 
 func (sms *SMSTXModel)InsertSMSInfo()error {
 	fmt.Println(sms)
@@ -67,17 +63,10 @@ func (sms *SMSTXModel)InsertSMSInfo()error {
 		log.Warn(err.Error())
 		return err
 	}
-	//手机数据短信send次数自增
-	stmt, err = db.Prepare("INSERT telephone SET mobile=?,ncode=? on duplicate key update scount=scount+1,ncode=?")
-	if err != nil{
-		log.Warn(err.Error())
-		return err
-	}
-	_, err1 := stmt.Exec(sms.Mobile,sms.Ncode,sms.Ncode)
-	if err1 != nil {
-		log.Warn(err1.Error())
-	}
-	return err
+	var tel TelephoneModel
+	tel.Mobile = sms.Mobile
+	tel.NCode = sms.Ncode
+	return tel.UpdateSendCount2DB()
 }
 
 func (sms *SMSTXModel)MarkSmsVerifyCode(status int)error  {
@@ -115,6 +104,8 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 	}
 	return sms,nil
 }
+
+
 //todo 一天内只能发送10次验证码
 func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 	db := db.DBConf()
