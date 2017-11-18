@@ -11,7 +11,7 @@ type TelephoneModel struct {
 	Type		int 			`json:"type,omitempty" form:"type,omitempty"` //1 用户注册类型
 }
 
-func (tel TelephoneModel)UpdateSendCount2DB()error {
+func (tel *TelephoneModel)UpdateSendCount2DB()error {
 	db := db.DBConf()
 	//手机数据短信send次数自增
 	stmt, err := db.Prepare("INSERT telephone SET mobile=?,ncode=? on duplicate key update scount=scount+1,ncode=?")

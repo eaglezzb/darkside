@@ -35,7 +35,16 @@ func Test()  {
 	//var n int64
 	//n = 122111111
 	//fmt.Println(utils.ConvertInt2String(n))
+	insertMail()
 
+}
+
+func insertLocation()  {
+	location := model.LocationModel{}
+	location.Uid = 10000048
+	location.Longitude = 12222322
+	location.Latitude = 22999499
+	location.UpdateLocation()
 
 }
 
@@ -48,7 +57,7 @@ func insertMail()  {
 	mail.Type = 1
 	mail.Status = -1
 	mail.CreateTime = time.Now().Unix()
-
+	mail.Sender = email.USER
 	mail.InsertSMSInfo()
 
 
