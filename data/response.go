@@ -14,7 +14,7 @@ func ErrorResponse(errno int, msg string) Response {
 }
 
 func (s Response) SetErrorInfo(errno int, msg string) {
-	s["errno"] = errno
+	s["code"] = errno
 	s["msg"] = msg
 }
 func (s Response) SetSuccessInfo(code int, msg string) {
