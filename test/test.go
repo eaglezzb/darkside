@@ -20,14 +20,22 @@ func Test()  {
 	//utils.Test()
 
 	//userTest()
-	//user,_ := model.FindUserFromDB(20)
+	//user,_ := model.FindUserFromDB(1000048)
 	//fmt.Println(user)
 	//err := model.DeleteUserFromDB(111)
 	//if err != nil{
 	//	fmt.Println(err)
 	//}
 	//
-	sendMail()
+	//sendMail()
+	//fmt.Println(utils.ConvertInt2String(user))
+	//
+	//fmt.Println(utils.ConvertInt2String(2002002))
+	//fmt.Println(utils.ConvertInt2String("232aass"))
+	//var n int64
+	//n = 122111111
+	//fmt.Println(utils.ConvertInt2String(n))
+
 
 }
 
