@@ -136,7 +136,7 @@ func sendRegistEmailCode(mail model.MailModel)error  {
 	email.Verifycode = strings.ToUpper(u.RandSMSString(6))
 	email.Status = 1
 	email.Message = fmt.Sprintf("您的验证码是：%s 如非本人操作，请忽略本邮件.(http://www.flywithme.top)",email.Verifycode)
-
+	email.Sender = e.USER
 	sendmail := e.NewEmail(email.Mail,"案发现场-注册邮件验证",email.Message)
 	err := e.SendEmail(sendmail)
 	if err != nil{
