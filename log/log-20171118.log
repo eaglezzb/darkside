@@ -1,0 +1,17 @@
+2017-11-18 19:02:36 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/sms 
+2017-11-18 19:02:36 	 [ WARN] 	 <model_sms.go:125>  	 sql: no rows in result set
+2017-11-18 19:02:54 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/registeruser 
+2017-11-18 19:02:54 	 [ WARN] 	 <model_user.go:66>  	 Error 1406: Data too long for column 'userid' at row 1
+2017-11-18 19:03:18 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/registeruser 
+2017-11-18 19:03:18 	 [ WARN] 	 <model_user.go:67>  	 Error 1406: Data too long for column 'userid' at row 1
+2017-11-18 19:10:05 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/registeruser 
+2017-11-18 19:10:16 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/registeruser 
+2017-11-18 19:12:24 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/1000018 
+2017-11-18 19:12:24 	 [ WARN] 	 <model_user.go:140>  	 sql: no rows in result set
+2017-11-18 19:13:07 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/1000018 
+2017-11-18 19:13:07 	 [ WARN] 	 <model_user.go:139>  	 sql: no rows in result set
+2017-11-18 19:13:11 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/1000048 
+2017-11-18 19:15:06 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/1000048 
+2017-11-18 19:21:44 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/userid/1000048 
+2017-11-18 19:21:59 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/userid/41981e0948db420f7026491700272b2d 
+2017-11-18 19:23:12 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/user/41981e0948db420f7026491700272b2d 
