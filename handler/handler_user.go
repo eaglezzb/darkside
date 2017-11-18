@@ -5,7 +5,6 @@ import (
 	m "github.com/flywithbug/darkside/model"
 	 "github.com/flywithbug/darkside/common"
 	d "github.com/flywithbug/darkside/data"
-	"time"
 	_ "fmt"
 	"fmt"
 	"net/http"
@@ -47,9 +46,6 @@ func RegisterHandler(c *gin.Context )  {
 		return
 	}
 
-	tm := time.Now()
-	user.CreateTime = tm.Unix()
-	user.UpdateTime = tm.Unix()
 	err = user.InsertUser()
 	if err != nil {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara,err.Error())
