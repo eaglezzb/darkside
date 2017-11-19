@@ -1,19 +1,19 @@
 package test
 
 import (
-	"github.com/flywithbug/darkside/db"
-	"github.com/flywithbug/darkside/model"
-	"time"
-	"github.com/flywithbug/darkside/email"
-	_ "github.com/flywithbug/utils"
-	_ "github.com/flywithbug/darkside/config"
 	"github.com/flywithbug/darkside/config"
+	_ "github.com/flywithbug/darkside/config"
+	"github.com/flywithbug/darkside/db"
+	"github.com/flywithbug/darkside/email"
+	"github.com/flywithbug/darkside/model"
 	"github.com/flywithbug/utils"
+	_ "github.com/flywithbug/utils"
+	"time"
 
 	"fmt"
 )
 
-func Test()  {
+func Test() {
 
 	//dbsqlTest()
 
@@ -39,16 +39,15 @@ func Test()  {
 
 }
 
-func memCahceTest()  {
+func memCahceTest() {
 
-	db.MemCacheConfig().Add("auth",0,"adadsadasadsadsasd")
+	db.MemCacheConfig().Add("auth", 0, "adadsadasadsadsasd")
 	res, err := db.MemCacheConfig().Value("auth")
-	fmt.Println("db.Me)",res.Data().(string),err)
+	fmt.Println("db.Me)", res.Data().(string), err)
 
 }
 
-
-func insertLocation()  {
+func insertLocation() {
 	location := model.LocationModel{}
 	location.Uid = 10000048
 	location.Longitude = -122.9992222
@@ -57,7 +56,7 @@ func insertLocation()  {
 
 }
 
-func insertMail()  {
+func insertMail() {
 	mail := model.EmailInfoModel{}
 
 	mail.Mail = "2323@qq.com"
@@ -69,28 +68,27 @@ func insertMail()  {
 	mail.Sender = email.USER
 	mail.InsertSMSInfo()
 
-
 }
 
-func sendMail()  {
+func sendMail() {
 	fmt.Println("发送邮件")
 
 	mycontent := "请查收验证码：12322"
-	mail := email.NewEmail("myworldmine@163.com","案发现场-注册邮件验证",mycontent)
+	mail := email.NewEmail("myworldmine@163.com", "案发现场-注册邮件验证", mycontent)
 	err := email.SendEmail(mail)
 	fmt.Println(err)
 }
 
-func randomString()  {
+func randomString() {
 	fmt.Println(utils.RandSMSString(6))
 }
 
-func testPhoneDB()  {
+func testPhoneDB() {
 	fmt.Println(config.TomlConf().Smsc)
 
 	var telModel model.SMSTXModel
 	telModel.Messag = "abdadasd"
-	telModel.SMStype = 1;
+	telModel.SMStype = 1
 	telModel.Time = time.Now().Unix()
 	telModel.Mobile = "17602198928"
 	telModel.Smscode = "adb234"
@@ -114,14 +112,13 @@ func userTest() {
 	user.InsertUser()
 }
 
-
 func checkErr(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
 
-func dbsqlTest()  {
+func dbsqlTest() {
 
 	var db = db.DBConf()
 
@@ -160,9 +157,8 @@ func dbsqlTest()  {
 		var age int
 		var phone string
 
+		err = rows.Scan(&uid, &username, &department, &createtime, &age, &phone)
 
-		err = rows.Scan(&uid, &username, &department, &createtime,&age,&phone)
-
-		fmt.Println(uid,username,department,createtime,age,phone)
+		fmt.Println(uid, username, department, createtime, age, phone)
 	}
 }
