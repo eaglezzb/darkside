@@ -106,14 +106,13 @@ func CheckPhoneAndVerifyCode(phone string,verifycode string)(SMSTXModel,error)  
 }
 
 
-//todo 一天内只能发送10次验证码
+//判断60秒内是否发送过短信验证码
 func (sms *SMSTXModel)CheckDidSMSSend()bool  {
 	db := db.DBConf()
 	err := db.QueryRow("SELECT uid, mobile, time, smscode, status,type FROM smstx WHERE mobile=? and time>?", sms.Mobile,time.Now().Unix()-60).
 		Scan(&sms.Uid,
 		&sms.Mobile, &sms.Time,&sms.Smscode,&sms.Status,&sms.SMStype)
 	if err != nil {
-		log.Warn(err.Error())
 		return false
 	}
 	return true

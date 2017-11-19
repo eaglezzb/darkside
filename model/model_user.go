@@ -29,11 +29,9 @@ type UserModel struct {
 	OldPassword 	string		`json:"oldpassword,omitempty" form:"oldpassword,omitempty"`
 	Authtoken 	string		`json:"authtoken,omitempty" form:"authtoken,omitempty"`
 	State 		int 		`json:"state,omitempty" form:"state,omitempty"`
-
 	RegisterType 	string          `json:"registertype,omitempty"`
 	VerifyCode      string 		`json:"verifycode,omitempty"`
 }
-
 
 
 
@@ -196,18 +194,26 @@ func CheckLogin(phone string,pass string)(UserModel,error)  {
 	}
 	user.Password = ""
 	user.OldPassword = ""
-
+	tm := time.Now()
+	user.UpdateTime = tm.Unix()
+	fmt.Println(user.UserId+tm.String())
+	user.Authtoken = utils.Md5(user.UserId+tm.String())
+	err = user.updateUserToken()
+	if err != nil{
+		log.Warn(err.Error())
+		err = errors.New("login fail")
+	}
 	return user,err
 }
 
 func (user *UserModel)updateUserToken()error  {
 	db := db.DBConf()
-	stmt, err := db.Prepare("UPDATE user SET authtoken=? where uid=?")
+	stmt, err := db.Prepare("UPDATE user SET authtoken=?,updatetime=? where uid=?")
 	if err != nil{
 		log.Warn(err.Error())
 		return errors.New("user invalid")
 	}
-	_,err = stmt.Exec(user.Authtoken,user.Uid)
+	_,err = stmt.Exec(user.Authtoken,user.UpdateTime,user.Uid)
 	if err != nil{
 		log.Warn(err.Error())
 	}
