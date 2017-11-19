@@ -59,8 +59,6 @@ func RegisterHandler(c *gin.Context )  {
 	aRespon.AddResponseInfo("code",http.StatusOK)
 	aRespon.AddResponseInfo("user",user)
 	sms.MarkSmsVerifyCode(m.SMSStatusChecked)
-
-
 }
 
 
@@ -71,7 +69,6 @@ func LoginHandler(c *gin.Context) {
 	}()
 	user := m.NewUser()
 	err := c.BindJSON(&user)
-	fmt.Println(err,user)
 	if err != nil {
 		aRespon.SetErrorInfo(d.ErrCodeRequestInvalidPara, "Params invalid " + err.Error())
 		return
@@ -91,6 +88,7 @@ func GetUserInfoHandler(c *gin.Context)  {
 	defer func() {
 		c.JSON(http.StatusOK, aRespon)
 	}()
+
 	uid ,_ := strconv.ParseInt(c.Param("uid"),10,64)
 	user,err := m.FindUserFromDB(uid)
 	if err != nil{

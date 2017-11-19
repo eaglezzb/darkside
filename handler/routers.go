@@ -13,12 +13,14 @@ var routers = map[string]gin.HandlerFunc{
 	"GET      /upload":UploadIndexHandler,
 	"POST     /uploadfile":UploadFileHandler,
 
+
+	"POST     /sms":SendSMSandler,
+	"POST     /mail":SendMailHandler,
+
+
 	"GET      /user/:userid":GetUserInfoUserIdHandler,
 	"POST     /user/registeruser":RegisterHandler,
 	"POST     /user/login":LoginHandler,
-	"POST     /user/sms":SendSMSandler,
-	"POST     /user/mail":SendMailHandler,
-
 	"POST     /user/updatelca":UpdateLocation,
 }
 
