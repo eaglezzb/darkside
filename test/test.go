@@ -35,9 +35,18 @@ func Test()  {
 	//var n int64
 	//n = 122111111
 	//fmt.Println(utils.ConvertInt2String(n))
-	insertLocation()
+	memCahceTest()
 
 }
+
+func memCahceTest()  {
+
+	db.MemCacheConfig().Add("auth",0,"adadsadasadsadsasd")
+	res, err := db.MemCacheConfig().Value("auth")
+	fmt.Println("db.Me)",res.Data().(string),err)
+
+}
+
 
 func insertLocation()  {
 	location := model.LocationModel{}
