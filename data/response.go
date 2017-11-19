@@ -1,6 +1,5 @@
 package data
 
-
 type Response map[string]interface{}
 
 func NewResponse() Response {
