@@ -15,7 +15,6 @@ type LocationModel struct {
 }
 
 func (location *LocationModel)UpdateLocation()error {
-	fmt.Println()
 	db := db.DBConf()
 	//手机数据短信send次数自增
 	stmt, err := db.Prepare("INSERT location SET uid =?,latitude=?,longitude=?, time=? on duplicate key update uid=?, latitude=?,longitude=?, time=?")

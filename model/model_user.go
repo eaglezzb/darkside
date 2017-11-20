@@ -152,16 +152,16 @@ func FindUserFromDB(uid int64)(UserModel,error)  {
 func FindUserFromDBByUserid(userid string)(UserModel,error)  {
 	var user UserModel
 	db := db.DBConf()
-	err := db.QueryRow("SELECT  username, password, sex, userid, phone, phoneprefix, createtime, updatetime, state, authtoken, mail, oldpassword FROM user WHERE userid=?", userid).
-		Scan(&user.UserName, &user.Password, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
-		&user.CreateTime, &user.UpdateTime,&user.State,&user.Authtoken,&user.Mail,&user.OldPassword)
+	err := db.QueryRow("SELECT  username,  sex, userid, phone, phoneprefix, createtime, updatetime, state, mail FROM user WHERE userid=?", userid).
+		Scan(&user.UserName, &user.Sex, &user.UserId, &user.Phone, &user.PhonePrefix,
+		&user.CreateTime, &user.UpdateTime,&user.State,&user.Mail)
 	if err != nil {
 		log.Warn(err.Error())
 	}
-	user.Password = ""
-	user.OldPassword = ""
 	return user,err
 }
+
+
 
 
 func FindUserFromDBByName(name string)(UserModel,error)  {
@@ -196,7 +196,7 @@ func CheckLogin(phone string,pass string)(UserModel,error)  {
 	user.OldPassword = ""
 	tm := time.Now()
 	user.UpdateTime = tm.Unix()
-	fmt.Println(user.UserId+tm.String())
+	//fmt.Println(user.UserId+tm.String())
 	user.Authtoken = utils.Md5(user.UserId+tm.String())
 	err = user.updateUserToken()
 	if err != nil{
