@@ -67,3 +67,11 @@
     ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
     
     
+**用户关系表**    
+
+    CREATE TABLE `user_friend_connect` (
+      `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      `userid_1` varchar(32) NOT NULL DEFAULT '',
+      `userid_2` varchar(32) NOT NULL DEFAULT '',
+      PRIMARY KEY (`uid`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
