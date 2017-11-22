@@ -1,0 +1,7 @@
+2017-11-22 21:22:59 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-22 21:22:59 	 [ WARN] 	 <model_profile.go:23>  	 Error 1054: Unknown column 'userid' in 'field list'
+2017-11-22 21:23:54 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-22 21:23:54 	 [ WARN] 	 <model_profile.go:23>  	 Error 1054: Unknown column 'updatetime' in 'field list'
+2017-11-22 21:24:26 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-22 21:24:45 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-22 21:24:52 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 

@@ -35,15 +35,24 @@ func Test() {
 	//var n int64
 	//n = 122111111
 	//fmt.Println(utils.ConvertInt2String(n))
-	memCahceTest()
+	profileUpdateTest()
 
 }
 
 func memCahceTest() {
 
-	db.MemCacheConfig().Add("auth", 0, "adadsadasadsadsasd")
-	res, err := db.MemCacheConfig().Value("auth")
-	fmt.Println("db.Me)", res.Data().(string), err)
+	//db.MemCacheConfig().Add("auth", 0, "adadsadasadsadsasd")
+	//res, err := db.MemCacheConfig().Value("auth")
+	//fmt.Println("db.Me)", res.Data().(string), err)
+
+}
+
+func profileUpdateTest()  {
+	profile := model.UserProfileModel{}
+	profile.UserId = "41981e0948db420f7026491700272b2d"
+	profile.Uid = 1000048
+	profile.Avatar = "http://7xsdes.com1.z0.glb.clouddn.com/image/blog/reactnativeiOSAndroid02.png"
+	profile.UpdateUserProfile()
 
 }
 
