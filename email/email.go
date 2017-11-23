@@ -1,6 +1,5 @@
 package email
 
-
 import (
 	"net/smtp"
 	"strings"
@@ -17,9 +16,8 @@ const (
 	HOST        = "smtp.163.com"
 	SERVER_ADDR = "smtp.163.com:25"
 	USER        = "webFlywithme@163.com" //发送邮件的邮箱
-	PASSWORD    = "Web1234567"         //发送邮件邮箱客户端授权密码
+	PASSWORD    = "Web1234567"           //发送邮件邮箱客户端授权密码
 )
-
 
 type Email struct {
 	to      string "to"
