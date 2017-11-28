@@ -10,7 +10,7 @@ import (
 type LocationModel struct {
 	Uid  		int64 		`json:"uid,omitempty" form:"uid,omitempty"`
 	Latitude 	float32		`json:"latitude,omitempty" form:"latitude,omitempty"`
-	Longitude	float32  		`json:"longitude,omitempty" form:"longitude,omitempty"`
+	Longitude	float32  	`json:"longitude,omitempty" form:"longitude,omitempty"`
 	Updatetime	int64  		`json:"time,omitempty" form:"time,omitempty"`
 }
 
