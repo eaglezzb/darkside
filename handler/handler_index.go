@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/flywithbug/darkside/test"
+	"darkside/test"
 	"net/http"
 )
 
