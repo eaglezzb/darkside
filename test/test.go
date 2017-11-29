@@ -1,11 +1,11 @@
 package test
 
 import (
-	"github.com/flywithbug/darkside/config"
-	_ "github.com/flywithbug/darkside/config"
-	"github.com/flywithbug/darkside/db"
-	"github.com/flywithbug/darkside/email"
-	"github.com/flywithbug/darkside/model"
+	"darkside/config"
+	_ "darkside/config"
+	"darkside/db"
+	"darkside/email"
+	"darkside/model"
 	"github.com/flywithbug/utils"
 	_ "github.com/flywithbug/utils"
 	"time"

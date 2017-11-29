@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/flywithbug/darkside/config"
-	"github.com/flywithbug/darkside/db"
-	"github.com/flywithbug/darkside/handler"
-	midw "github.com/flywithbug/darkside/middleware"
+	"darkside/config"
+	"darkside/db"
+	"darkside/handler"
+	midw "darkside/middleware"
 	log "github.com/flywithbug/log4go"
 	"github.com/gin-gonic/gin"
 	"github.com/itsjamie/gin-cors"

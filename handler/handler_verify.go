@@ -2,11 +2,11 @@ package handler
 
 import (
 	"fmt"
-	"github.com/flywithbug/darkside/common"
-	"github.com/flywithbug/darkside/config"
-	d "github.com/flywithbug/darkside/data"
-	e "github.com/flywithbug/darkside/email"
-	"github.com/flywithbug/darkside/model"
+	"darkside/common"
+	"darkside/config"
+	d "darkside/data"
+	e "darkside/email"
+	"darkside/model"
 	"github.com/flywithbug/qcloudsms"
 	u "github.com/flywithbug/utils"
 	"github.com/gin-gonic/gin"

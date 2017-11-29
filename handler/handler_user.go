@@ -2,9 +2,9 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	m "github.com/flywithbug/darkside/model"
-	 "github.com/flywithbug/darkside/common"
-	d "github.com/flywithbug/darkside/data"
+	m "darkside/model"
+	 "darkside/common"
+	d "darkside/data"
 	_ "fmt"
 	"fmt"
 	"net/http"

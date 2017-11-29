@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/flywithbug/darkside/db"
+	"darkside/db"
 	log "github.com/flywithbug/log4go"
 	//"fmt"
 	"time"

@@ -1,0 +1,2 @@
+2017-11-29 17:45:33 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/ 
+2017-11-29 17:45:33 	 [ INFO] 	 <middleware.go:19>  	 Form: ip:127.0.0.1 path:/favicon.ico 

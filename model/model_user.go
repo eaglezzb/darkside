@@ -3,7 +3,7 @@ package model
 import (
 	"errors"
 	"fmt"
-	"github.com/flywithbug/darkside/db"
+	"darkside/db"
 	log "github.com/flywithbug/log4go"
 	"github.com/flywithbug/utils"
 	"strconv"
