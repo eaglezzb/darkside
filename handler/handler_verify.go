@@ -10,7 +10,7 @@ import (
 	"github.com/flywithbug/qcloudsms"
 	u "github.com/flywithbug/utils"
 	"github.com/gin-gonic/gin"
-	"github.com/kataras/iris/core/errors"
+	"errors"
 	"net/http"
 	"strings"
 	"time"
